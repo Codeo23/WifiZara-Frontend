@@ -4,18 +4,15 @@ import Chevron from "../icons/ChevronDown"
 const mostOrdered = [
     {
       name: "David",
-      image: "https://avatars.githubusercontent.com/u/82655694?v=4",
-      count: 200,
+      image: "https://avatars.githubusercontent.com/u/82655694?v=4"
     },
     {
       name: "Goliata",
-      image: "https://avatars.githubusercontent.com/u/93115585?v=4",
-      count: 120,
+      image: "https://avatars.githubusercontent.com/u/93115585?v=4"
     },
     {
       name: "Solomon",
-      image: "https://avatars.githubusercontent.com/u/80751503?s=400&u=6a0d04a90a1089e5ad180560b65371d56c0a20a8&v=4",
-      count: 80,
+      image: "https://avatars.githubusercontent.com/u/80751503?s=400&u=6a0d04a90a1089e5ad180560b65371d56c0a20a8&v=4"
     },
   ];
 
@@ -40,7 +37,6 @@ const MostOrdered = ()=>{
                             <img className="w-14 h-14 rounded-full" src={order.image}  alt="" />
                             <div className="flex flex-col gap-y-0.5">
                             <div className="text-sm font-medium text-white">{ order.name }</div>
-                            <div className="text-xs text-gray-500">{ order.count } Personnes</div>
                          </div>
                         </div>
                     ))}

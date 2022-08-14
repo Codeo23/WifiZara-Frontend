@@ -42,17 +42,6 @@ const OrderReport = () =>{
 
     const [etudiants,setEtudiants] = useState({})
 
-    useEffect(() => {
-        if(localStorage.getItem("token")){
-            const decoded = jwt_decode(localStorage.getItem("token"))
-            console.log(decoded)
-            axios.get(`https://wifizara-back.iteam-s.mg/users/${decoded.id}`)
-            .then(res => setEtudiants(res.data)).catch(e => console.log(e))
-        }
-    },[])
-    const handleDelete = ()=>{
-
-    }
     
     return(
         <Fragment>
@@ -105,18 +94,18 @@ const OrderReport = () =>{
                     </tr>
                 </thead>
                 <tbody>
-                    {etudiants.map(et=>(
+                    {orders.map(et=>(
                     <tr v-for="order in orders" className="text-sm text-gray-500">
                     <td className="py-4">
                         <div className="flex gap-4 items-center">
-                            <img width="32" className="rounded-full" src="" alt="" />
-                            <span>{et.lastname} </span>
+                            <img width="32" className="rounded-full" src={et.avatar} alt="" />
+                            <span>{et.nom} </span>
                         </div>
                     </td>
-                    <td className="py-4">{et.firstname}</td>
+                    <td className="py-4">{et.prenom}</td>
                     <td className="py-4 ">PRO</td>
                     <td className="py-4 ">L2</td>
-                    <td className="py-4 ">{et.remainingData}</td>
+                    <td className="py-4 ">{et.data_restant}</td>
                     <td className="py-4 ">
                         <span
                         className="px-4 flex justify-center py-1 w-24 font-medium capitalize rounded-full"
