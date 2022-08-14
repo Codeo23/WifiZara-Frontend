@@ -3,6 +3,14 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./section5.scss"
+import sourire1 from "./../../../Assets/sourire1.png"
+import sourire2 from "./../../../Assets/sourire2.png"
+
+const images = [
+    {id:1,src:sourire1,nom:'Anjara danivet'},
+    {id:2,src:sourire2,nom:'Seheno Razafindrasoa'},
+    {id:3,src:"https://assets.website-files.com/611d114cb3a54a7930597408/611d114cb3a54a2028597455_image-home-v1-testimonials-startup-x-template.jpg",nom:'Stephanot Sedraina'},
+]
 
 const Section5 = () => {
     const settings = {
@@ -19,15 +27,16 @@ const Section5 = () => {
             <div className='content-section5'>
                 <div className="image">
                     <Slider {...settings} ref={slider}>
-                        {[1, 2, 3, 4, 5].map((item) =>
-                            <div key={`${item}`} className="box-image">
-                                <img src="https://assets.website-files.com/611d114cb3a54a7930597408/611d114cb3a54a2028597455_image-home-v1-testimonials-startup-x-template.jpg" alt="" />
+
+                        {images.map((item) =>
+                            <div key={`${item.id}`} className="box-image">
+                                <img src={item.src} alt={item.name} />
                                 <div className='box-text'>
                                     <p className="p1">
-                                        “Lorem ipsum dolor sit amet consectetur adipiscing elit auctor scelerisque quam id magna risus nisi lectus odio interdum.”
+                                        “social network”
                                     </p>
                                     <p className='p2'>
-                                        Andy Smith
+                                        {item.name}
                                     </p>
                                     <p className='p3'>
                                         Un super fan de Marvel series
