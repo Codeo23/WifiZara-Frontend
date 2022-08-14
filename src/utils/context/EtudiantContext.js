@@ -9,7 +9,7 @@ export const EtudiantContextProvider=props=>{
     const [etudiants,setEtudiants]=useState([]);
     useEffect(()=>{
         async function fetchEtudiant(){
-            await EtudiantAxios.get('/feedbacks')
+            await EtudiantAxios.get('/users')
                 .then((response)=>{
                     setEtudiants(response.data)
                 })
