@@ -5,6 +5,7 @@ import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import Logo from "../../Assets/logo.png"
 import "./style.scss"
+import ChooseLangue from "../ChooseLangue/ChooseLangue";
 
 
 function withRouter(Component) {
@@ -61,11 +62,20 @@ const Header = () => {
     }, 1200);
   };
 
+  const change=(option)=>{
+    localStorage.setItem('lang',option);
+    window.location.reload()
+  }
+
   return (
     <header>
       <div className="menu">
         <Link to="/"><img src={Logo} alt="logo" /></Link>
         <div className="right">
+          <div>
+            <button onClick={()=>change("fr")}>Fr</button>
+            <button onClick={()=>change("en")}>En</button>
+          </div>
           <Link to="/login">Se connecter</Link>
           <Link to="/register">S'inscrire</Link>
           <button disabled={disabled} onClick={handleMenu}>

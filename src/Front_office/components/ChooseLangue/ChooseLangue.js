@@ -63,7 +63,7 @@ const ChooseLangue = () => {
      return (
           <Box position="absolute">
                <ToggleButtonGroup
-                    orientation="vertical"
+                    orientation="horizontal"
                     value={view}
                     exclusive
                     onChange={handleChange}
