@@ -1,7 +1,7 @@
 import { TextField, FormControlLabel, Switch, InputAdornment } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility"
 import VisibilityOff from "@mui/icons-material/VisibilityOff"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StyleAuth } from "./../Styles";
 import { useState } from "react"
 import * as Yup from "yup"
@@ -9,8 +9,10 @@ import "./login.scss"
 import { useForm } from "react-hook-form";
 import Logo from "./../../../Assets/logo2.png"
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios"
 
 const Login = () => {
+    const navigate = useNavigate()
     const styles = StyleAuth()
     const [values, setValues] = useState(false)
     const handleClickShowPassword = () => { setValues(v => !v) }
@@ -26,8 +28,20 @@ const Login = () => {
         resolver: yupResolver(validation)
     })
 
+    const redirection = (role) => {
+        if(role === "1"){
+            navigate("/admin/home")
+        }
+        else {
+            navigate("/profile")
+        }
+    }
+
     const handleAddSubmit = async (data) => {
-        console.log(data)
+        axios.post("https://wifizara-back.iteam-s.mg/login",{
+            email: data.email,
+            password: data.mdp
+        }).then(res => {localStorage.setItem("token",res.data.jwt);redirection(res.data.role)}).catch(e => console.log(e))
     }
     return (
         <div className="login">

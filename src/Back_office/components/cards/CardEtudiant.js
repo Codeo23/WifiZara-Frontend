@@ -1,4 +1,6 @@
-import React, { Fragment,useContext } from "react";
+import React, { Fragment,useState,useEffect } from "react";
+import axios from "axios"
+import jwt_decode from "jwt-decode"
 import Color from "../palette/color";
 import Delete from "../icons/Deleteicon";
 import Pen from "../icons/Update";
@@ -35,10 +37,19 @@ const orders = [
   
 
 const OrderReport = () =>{
-    const {etudiants}=useContext(EtudiantContext)
     const date=new Date()
     const dateFormat=`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
 
+    const [etudiants,setEtudiants] = useState({})
+
+    useEffect(() => {
+        if(localStorage.getItem("token")){
+            const decoded = jwt_decode(localStorage.getItem("token"))
+            console.log(decoded)
+            axios.get(`https://wifizara-back.iteam-s.mg/users/${decoded.id}`)
+            .then(res => setEtudiants(res.data)).catch(e => console.log(e))
+        }
+    },[])
     const handleDelete = ()=>{
 
     }
@@ -94,18 +105,18 @@ const OrderReport = () =>{
                     </tr>
                 </thead>
                 <tbody>
-                    {etudiants.map(order=>(
+                    {etudiants.map(et=>(
                     <tr v-for="order in orders" className="text-sm text-gray-500">
                     <td className="py-4">
                         <div className="flex gap-4 items-center">
                             <img width="32" className="rounded-full" src="" alt="" />
-                            <span> RAMAMIHARIVELO </span>
+                            <span>{et.lastname} </span>
                         </div>
                     </td>
-                    <td className="py-4">Marihasina</td>
+                    <td className="py-4">{et.firstname}</td>
                     <td className="py-4 ">PRO</td>
                     <td className="py-4 ">L2</td>
-                    <td className="py-4 ">40 Mo</td>
+                    <td className="py-4 ">{et.remainingData}</td>
                     <td className="py-4 ">
                         <span
                         className="px-4 flex justify-center py-1 w-24 font-medium capitalize rounded-full"

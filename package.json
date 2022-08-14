@@ -32,6 +32,7 @@
         "i18next-browser-languagedetector": "^6.1.4",
         "i18next-http-backend": "^1.4.0",
         "js-cookie": "^3.0.1",
+        "jwt-decode": "^3.1.2",
         "locomotive-scroll": "^4.1.4",
         "lottie-web": "^5.9.6",
         "postcss-cli": "^9.1.0",

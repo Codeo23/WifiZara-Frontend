@@ -3,12 +3,11 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./section5.scss"
-import sourire1 from "./../../../Assets/sourire1.png"
-import sourire2 from "./../../../Assets/sourire2.png"
+
 
 const images = [
-    {id:1,src:sourire1,nom:'Anjara danivet'},
-    {id:2,src:sourire2,nom:'Seheno Razafindrasoa'},
+    {id:1,src:"./../../../Assets/sourire1.png",nom:'Anjara danivet'},
+    {id:2,src:"./../../../Assets/sourire2.png",nom:'Seheno Razafindrasoa'},
     {id:3,src:"https://assets.website-files.com/611d114cb3a54a7930597408/611d114cb3a54a2028597455_image-home-v1-testimonials-startup-x-template.jpg",nom:'Stephanot Sedraina'},
 ]
 
@@ -28,9 +27,9 @@ const Section5 = () => {
                 <div className="image">
                     <Slider {...settings} ref={slider}>
 
-                        {images.map((item) =>
+                        {[1,2,3,4,5].map((item) =>
                             <div key={`${item.id}`} className="box-image">
-                                <img src={item.src} alt={item.name} />
+                                <img src="https://assets.website-files.com/611d114cb3a54a7930597408/611d114cb3a54a2028597455_image-home-v1-testimonials-startup-x-template.jpg" alt={item.name} />
                                 <div className='box-text'>
                                     <p className="p1">
                                         “social network”
