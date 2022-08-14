@@ -5,7 +5,6 @@ import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import Logo from "../../Assets/logo.png"
 import "./style.scss"
-import ChooseLangue from "../ChooseLangue/ChooseLangue";
 
 
 function withRouter(Component) {
