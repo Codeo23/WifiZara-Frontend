@@ -1,0 +1,126 @@
+@import "./../../../Assets/color";
+
+.section5 {
+    background-color: $bluedark;
+    margin-top: 120px;
+    padding: 0 50px;
+
+    .content-section5 {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        flex-wrap: nowrap;
+
+        @media (max-width:1090px){
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .box-image {
+            position: relative;
+
+            img {
+                height: 100%;
+                width: 80%;
+                object-fit: cover;
+                border-radius: 30px;
+            }
+        }
+
+        @media (max-width:1090px){
+            .image{
+                display: none;
+            }
+        }
+
+        .box-text {
+            position: absolute;
+            width: 70%;
+            bottom: 0;
+            right: 0;
+            background-color: white;
+            border-radius: 15px;
+            border-width: 0;
+            box-shadow: 0 4px 22px 0 rgb(41 44 50 / 4%);
+
+            .p1 {
+                color: #6f7278;
+                margin-bottom: 15px;
+            }
+
+            .p2 {
+                color: #292c32;
+                font-weight: 700;
+            }
+
+            .p3 {
+                color: #c0392b;
+                font-weight: 700;
+            }
+        }
+
+        .qlq-chiffres{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @media(max-width:1090px){
+                display: block;
+            }
+
+            .title{
+                text-align: center;
+                h1{
+                    font-size: 60px;
+                    color:#fff;
+                    position: relative;
+
+                    &:before,&:after{
+                        content: '';
+                        width: 100px;
+                        height: 5px;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background-color: $grey;
+                    }
+                    &:before{right: 100%;}
+                    &:after{left:100%}
+                }
+                p{
+                    color: $grey;
+                }
+            }
+            .chiffres{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 20px;
+                row-gap: 50px;
+                margin-top: 30px;
+
+                @media (max-width:1150px){
+                    row-gap: 20px;
+                    margin-top: 10px;
+                }
+
+                .chiffre{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    h1{
+                        font-size: 50px;
+                        color: #fff;
+                        span{
+                            color: $orange;
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

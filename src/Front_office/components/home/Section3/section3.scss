@@ -1,0 +1,122 @@
+@import "./../../../Assets/color";
+
+.section3 {
+    background-color: $bluedark;
+    margin-top: 120px;
+    padding: 0 50px;
+    .title {
+        text-align: center;
+        color: #fff;
+        font-size: 60px;
+        position: relative;
+        
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: $grey;
+        }
+
+        &:before {
+            right: 100%;
+        }
+
+        &:after {
+            left: 100%;
+        }
+
+        @media (max-width:830px){
+            font-size: 35px;
+            &:before,&:after{
+                display: none;
+            }
+        }
+    }
+
+    .content-section3 {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-top: 50px;
+        column-gap: 20px;
+
+        @media (max-width: 1000px) {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            align-items: flex-start;
+            .left > div{
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        }
+
+        .content {
+            h3 {
+                font-size: 22px;
+                color: rgb(169, 167, 167);
+            }
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $grey;
+
+            svg {
+                font-size: 40px;
+                color: $bluedark;
+            }
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+
+            &>div {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                column-gap: 15px;
+            }
+
+            .content {
+                text-align: right;
+
+                p{
+                    color:$grey;
+                }
+                @media (max-width:1000px) {
+                    text-align: start;
+                }
+            }
+
+            
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+
+            &>div {
+                display: flex;
+                column-gap: 15px;
+                align-items: center;
+            }
+            p{
+                color:$grey;
+            }
+        }
+    }
+
+}

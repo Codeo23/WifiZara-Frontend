@@ -1,0 +1,76 @@
+@import "./../../../Assets/color";
+
+.login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bluedark;
+
+    .login-content{
+        width: 40vw;
+        position: relative;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 2px 1px 1px  #fff;
+
+        .title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            img{
+                width: 80px;
+                height: 70px;
+                object-fit: cover;
+            }
+        }
+        .login-form{
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+
+            .form-group{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 15px;
+            }
+        }
+        .group-button{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 10px;
+            a{
+                width: 100%;
+                border-radius: 3px;
+                text-align: center;
+                background-color: $orange;
+            }
+            button{
+                border-radius: 3px;
+                padding: 5px 0;
+                color: #fff;
+
+                &.btn-login{
+                    background-color: $bluedark;
+                }
+                &.btn-cancel{
+                    background-color: $orange;
+                }
+            }
+        }
+        p{
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+            a{
+                color: $bluedark;
+                text-decoration: underline;
+            }
+        }
+    }
+}

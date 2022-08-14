@@ -1,0 +1,168 @@
+@import "./../../Assets/color";
+
+.profile {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $bluedark;
+
+    .header {
+        width: 100%;
+        height: 50px;
+        background-color: $grey;
+    }
+
+    .navBar {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        column-gap: 50px;
+        border-bottom: 1px solid $grey;
+
+        a {
+            color: $whiteGray;
+            text-decoration: none;
+            padding-bottom: 10px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .content-profile {
+        width: 100%;
+        padding: 10px 50px;
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            height: 100%;
+
+            .left {
+                border: 1px solid $grey;
+                border-radius: 5px;
+                padding: 20px;
+                color: $grey;
+                
+                .top-left {
+                    border-bottom: 1px solid $grey;
+
+                    span {
+                        color: $grey;
+                        font-size: 14px;
+                    }
+
+                    h1 {
+                        display: block;
+                        color: $whiteGray;
+                        text-align: center;
+                        margin: 10px 0;
+                    }
+                }
+
+                .description-user {
+                    display: flex;
+                    justify-content: space-around;
+                    font-size: 14px;
+                    margin-top: 20px;
+                }
+
+                .about-connection {
+                    font-size: 14px;
+                    margin-top: 50px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    width: 100%;
+                    column-gap: 20px;
+                    position: relative;
+                    padding-top: 20px;
+
+                    .about {
+                        display: grid;
+                        grid-template-columns: 75% 25%;
+                        background-color: $bluedark2;
+                        border-radius: 5px;
+                        padding: 25px;
+                        align-items: center;
+                        
+                        h3{
+                            font-size: 16px;
+                            color: #fff;
+                            margin-bottom: 10px;
+                        }
+
+                        h6{
+                            font-size: 14px;
+                            color:$grey;
+                            margin-top: 5px;
+                        }
+
+                        .circle{
+
+                        }
+                    }
+                    
+                }
+                .line {
+                    width: 30%;
+                    border-bottom: 1px dashed $grey;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                .nivo{
+                    margin-top: 50px;
+                    position: relative;
+                    .chart{
+                        height: 200px;
+                    }
+                }
+                
+            }
+
+            /*Style of right component*/
+            .right {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    width: 300px;
+                    height: 300px;
+                    margin-top: -30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                .about-user {
+                    width: 100%;
+                    color: $whiteGray;
+                    padding: 10px 20px;
+
+                    h2 {}
+
+                    .graduate-and- {
+                        display: flex;
+                        justify-content: flex-start;
+                        column-gap: 50px;
+                        padding: 15px 0 0 0;
+                        font-size: 16px;
+                    }
+
+                    button {
+                        width: 100%;
+                        margin-top: 20px;
+                        padding: 10px;
+                        background-color: $bluedark2;
+                        border: none;
+                        color: $whiteGray;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+@import "./../../../Assets/color";
+.section2 {
+    background-color: $bluedark;
+    padding: 0 50px;
+    .title {
+        padding: 0px 15%;
+        text-align: center;
+        margin-bottom: 50px;
+
+        h1 {
+            color: #fff;
+            font-weight: 600;
+            font-size: 100px;
+            white-space: nowrap;
+            text-transform: uppercase;
+            line-height: 1;
+
+            @media (max-width: 980px){
+                font-size: 60px;
+            }
+            @media (max-width: 630px){
+                font-size: 40px;
+            }
+        }
+        span{
+            display: block;
+        }
+    }
+
+    .listItem {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        flex-wrap: nowrap;
+        column-gap: 10px;
+
+        @media (max-width:1140px) {
+            grid-template-columns: 1fr 1fr;
+            row-gap: 10px;
+        }
+        @media (max-width:720px){
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+        }
+
+        .boxItem {
+            background-color: $teal3;
+            box-shadow: 2px 2px 3px $teal2;
+            border-radius: 3px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+
+            h5{
+                color:#fff;
+                font-size: 18px;
+                font-weight: 500;
+                text-align: center;
+            }
+            p{
+                margin-top: 10px;
+                color: $grey;
+            }
+        }
+    }
+}
