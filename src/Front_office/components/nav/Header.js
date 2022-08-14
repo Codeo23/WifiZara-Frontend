@@ -24,7 +24,7 @@ function withRouter(Component) {
 }
 
 
-const Header = ({handleChangeLng}) => {
+const Header = ({handleChangeLng,t}) => {
   const [state, setState] = useState({
     initial: false,
     clicked: null,
@@ -80,8 +80,8 @@ const Header = ({handleChangeLng}) => {
               />
             </button>
           </div>
-          <Link to="/login">Se connecter</Link>
-          <Link to="/register">S'inscrire</Link>
+          <Link to="/login">{t("connect")}</Link>
+          <Link to="/register">{t("register")}</Link>
           <button disabled={disabled} onClick={handleMenu}>
             {state.menuName}
           </button>
