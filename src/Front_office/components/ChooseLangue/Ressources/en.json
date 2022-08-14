@@ -4,5 +4,7 @@
 	"access" : "balanced wifi",
 	"equilibre": "access point",
 	"connect":"Log in",
-	"register":"Sign in"
+	"register":"Sign in",
+	"plateforme": "A platform for the management of internet access to all",
+	"commencer": "Let's start"
 }

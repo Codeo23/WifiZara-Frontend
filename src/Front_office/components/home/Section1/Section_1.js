@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react"
 import gsap from "gsap";
 import "./section1.scss"
 import lottie from 'lottie-web';
+import { useLocomotiveScroll } from "react-locomotive-scroll";
 
 const Section1 = ({t}) => {
 
@@ -10,6 +11,16 @@ const Section1 = ({t}) => {
      let h6 = useRef(null)
      let btn = useRef(null)
      let image = useRef(null)
+
+     const { scroll } = useLocomotiveScroll()
+     const handleScroll = (id) => {
+          let element = document.querySelector(id)
+          scroll.scrollTo(element, {
+            offset: '-100',
+            duration: '2000',
+            easing: [0.25, 0.0, 0.35, 1.0]
+          })
+     }
 
      useEffect(() => {
           lottie.loadAnimation({
@@ -45,9 +56,9 @@ const Section1 = ({t}) => {
                                         <span data-scroll data-scroll-delay="0.02" data-scroll-speed="4">&nbsp;{t("equilibre")}</span>
                                    </div>
                                    <h6 ref={el => h6 = el}>
-                                        Un plateforme pour la gérance d'accès internet à tous
+                                        {t("plateforme")}
                                    </h6>
-                                   <button ref={el => btn = el}>Commencer</button>
+                                   <button ref={el => btn = el} onClick={()=> handleScroll(".section1")}>{t("commencer")}</button>
                               </div>
                          </div>
                          <div className="img">
