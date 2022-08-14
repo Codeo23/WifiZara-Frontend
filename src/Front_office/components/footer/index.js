@@ -25,6 +25,7 @@ const handleAddSubmit = async(data) => {
 }
 
   return (
+    <>
     <footer className="footer">
       <div className="container">
         <div className="row">
@@ -82,6 +83,8 @@ const handleAddSubmit = async(data) => {
         </div>
       </div>
     </footer>
+    <p className="copyright">Copyright &copy; 2022</p>
+    </>
   )
 }
 

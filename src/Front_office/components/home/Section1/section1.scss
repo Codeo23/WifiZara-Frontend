@@ -26,10 +26,10 @@ $tealRadiant: linear-gradient(to top, #000, #114246);
             display: flex;
             align-items: center;
             .block-span {
+                width: 100%;
                 display: flex;
                 flex-wrap: wrap;
                 line-height: 1;
-                border: 1px solid red;
             }
 
             span {

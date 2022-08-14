@@ -9,6 +9,7 @@ import { EtudiantContextProvider } from "../utils/context/EtudiantContext"
 const AppRouter = () => {
      const isConnected = true
      const isAdmin = true
+
      return (
           <EtudiantContextProvider>
                <BrowserRouter>

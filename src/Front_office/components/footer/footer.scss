@@ -76,17 +76,19 @@ ul{
     background-color: #fff;
 }
 
+.copyright{
+    margin-top: 50px;
+    padding:10px;
+    width: 100%;
+    text-align: center;
+    color:#fff;
+}
 form {
     margin-top: 20px;
 }
-@media(max-width:767px){
-    .footer-col{
-        width: 50%;
-        margin-bottom: 30px;
-    }
-}
-@media(max-width:767px){
-    .footer-col{
-        width: 100%;
+
+@media (max-width:780px){
+    footer{
+        display:none
     }
 }

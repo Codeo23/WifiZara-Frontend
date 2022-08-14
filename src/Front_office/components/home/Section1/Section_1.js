@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from "react"
-import gsap, { Power3 } from "gsap";
+import gsap from "gsap";
 import "./section1.scss"
 import lottie from 'lottie-web';
 
-const Section1 = () => {
+const Section1 = ({t}) => {
 
      let tl = new gsap.timeline();
-     let ease = Power3.easeOut();
      let h2 = useRef(null)
      let h6 = useRef(null)
      let btn = useRef(null)
@@ -40,12 +39,10 @@ const Section1 = () => {
                          <div className="content-left">
                               <div>
                                    <div className="block-span" ref={el => h2 = el}>
-                                        <span data-scroll data-scroll-delay="0.13" data-scroll-speed="4">Mettons en</span>
-                                        <span data-scroll data-scroll-delay="0.11" data-scroll-speed="4">&nbsp;place un</span>
-                                        <span data-scroll data-scroll-delay="0.09" data-scroll-speed="4">&nbsp;point d'</span>
-                                        <span data-scroll data-scroll-delay="0.07" data-scroll-speed="4">&nbsp;d'accès wifi</span>
-                                        <span data-scroll data-scroll-delay="0.05" data-scroll-speed="4">&nbsp;fiable et</span>
-                                        <span data-scroll data-scroll-delay="0.03" data-scroll-speed="4">&nbsp;équilibré</span>
+                                        <span data-scroll data-scroll-delay="0.13" data-scroll-speed="4">{t("mettons")}</span>
+                                        <span data-scroll data-scroll-delay="0.09" data-scroll-speed="4">&nbsp;{t("point")}</span>
+                                        <span data-scroll data-scroll-delay="0.05" data-scroll-speed="4">&nbsp;{t("access")}</span>
+                                        <span data-scroll data-scroll-delay="0.02" data-scroll-speed="4">&nbsp;{t("equilibre")}</span>
                                    </div>
                                    <h6 ref={el => h6 = el}>
                                         Un plateforme pour la gérance d'accès internet à tous
