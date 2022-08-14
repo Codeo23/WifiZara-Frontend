@@ -25,7 +25,7 @@ function withRouter(Component) {
 }
 
 
-const Header = () => {
+const Header = ({handleChangeLng}) => {
   const [state, setState] = useState({
     initial: false,
     clicked: null,
@@ -62,10 +62,7 @@ const Header = () => {
     }, 1200);
   };
 
-  const change=(option)=>{
-    localStorage.setItem('lang',option);
-    window.location.reload()
-  }
+
 
   return (
     <header>
@@ -73,8 +70,8 @@ const Header = () => {
         <Link to="/"><img src={Logo} alt="logo" /></Link>
         <div className="right">
           <div>
-            <button onClick={()=>change("fr")}>Fr</button>
-            <button onClick={()=>change("en")}>En</button>
+            <button onClick={() =>  handleChangeLng("en")}>EN</button>
+            <button onClick={() =>  handleChangeLng("jp")}>Jp</button>
           </div>
           <Link to="/login">Se connecter</Link>
           <Link to="/register">S'inscrire</Link>

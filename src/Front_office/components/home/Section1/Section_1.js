@@ -3,7 +3,7 @@ import gsap, { Power3 } from "gsap";
 import "./section1.scss"
 import lottie from 'lottie-web';
 
-const Section1 = () => {
+const Section1 = ({t}) => {
 
      let tl = new gsap.timeline();
      let ease = Power3.easeOut();
@@ -40,7 +40,7 @@ const Section1 = () => {
                          <div className="content-left">
                               <div>
                                    <div className="block-span" ref={el => h2 = el}>
-                                        <span data-scroll data-scroll-delay="0.13" data-scroll-speed="4">Mettons en</span>
+                                        <span data-scroll data-scroll-delay="0.13" data-scroll-speed="4">{t("hello")}</span>
                                         <span data-scroll data-scroll-delay="0.11" data-scroll-speed="4">&nbsp;place un</span>
                                         <span data-scroll data-scroll-delay="0.09" data-scroll-speed="4">&nbsp;point d'</span>
                                         <span data-scroll data-scroll-delay="0.07" data-scroll-speed="4">&nbsp;d'accès wifi</span>
