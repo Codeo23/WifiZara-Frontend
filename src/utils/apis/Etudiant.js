@@ -2,7 +2,7 @@ import Axios from "axios"
 
 
 const EtudiantAxios=Axios.create({
-    baseURL:"https://jsonplaceholder.typicode.com"
+    baseURL:"https://wifizara-back.iteam-s.mg",
 })
 
 

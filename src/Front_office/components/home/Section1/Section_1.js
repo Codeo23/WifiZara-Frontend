@@ -6,10 +6,6 @@ import { useLocomotiveScroll } from "react-locomotive-scroll";
 
 const Section1 = ({t}) => {
 
-     let tl = new gsap.timeline();
-     let h2 = useRef(null)
-     let h6 = useRef(null)
-     let btn = useRef(null)
      let image = useRef(null)
 
      const { scroll } = useLocomotiveScroll()
@@ -32,33 +28,22 @@ const Section1 = ({t}) => {
           })
      }, [])
 
-
-     useEffect(() => {
-          tl.from([h2, h6, btn], 2, {
-               opacity: 0,
-               y: 200,
-               skewY: 10,
-               stagger: {
-                    amount: .4
-               }
-          }, "-=1")
-     })
      return (
           <>
                <div className="section1">
                     <div className="content-section1">
                          <div className="content-left">
                               <div>
-                                   <div className="block-span" ref={el => h2 = el}>
-                                        <span data-scroll data-scroll-delay="0.13" data-scroll-speed="4">{t("mettons")}</span>
-                                        <span data-scroll data-scroll-delay="0.09" data-scroll-speed="4">&nbsp;{t("point")}</span>
-                                        <span data-scroll data-scroll-delay="0.05" data-scroll-speed="4">&nbsp;{t("access")}</span>
-                                        <span data-scroll data-scroll-delay="0.02" data-scroll-speed="4">&nbsp;{t("equilibre")}</span>
+                                   <div className="block-span">
+                                        <span>{t("mettons")}</span>
+                                        <span>&nbsp;{t("point")}</span>
+                                        <span>&nbsp;{t("access")}</span>
+                                        <span>&nbsp;{t("equilibre")}</span>
                                    </div>
-                                   <h6 ref={el => h6 = el}>
+                                   <h6>
                                         {t("plateforme")}
                                    </h6>
-                                   <button ref={el => btn = el} onClick={()=> handleScroll(".section1")}>{t("commencer")}</button>
+                                   <button onClick={()=> handleScroll(".section2")}>{t("commencer")}</button>
                               </div>
                          </div>
                          <div className="img">

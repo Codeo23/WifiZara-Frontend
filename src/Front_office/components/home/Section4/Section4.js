@@ -44,7 +44,7 @@ const Section4 = () => {
                 <div className="slide-box">
                     <Slider {...settings}>
                         {Opinion.map(op => (
-                            <div className="slide-card">
+                            <div key={op.auteur} className="slide-card">
                                 <div className="slide-paragraph">{op.descri}</div>
                                 <div className="slide-avatar">
                                     <div className="avatar">
