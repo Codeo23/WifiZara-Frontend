@@ -81,7 +81,7 @@ const Login = () => {
                             <p className="error">{errors.mdp?.message}</p>
                         </div>
 
-                        <FormControlLabel sx={{ color: "gray", fontSize: '12px' }} control={<Switch size="small" />} label="Se souviens de moi ? " />
+                        <FormControlLabel sx={{ color: "gray", fontSize: '12px' }} control={<Switch size="small" />} label="Se souvenir de moi ? " />
                     </div>
                     <div className="group-button">
                         <button className="btn-login" type="submit">Se connecter</button>
