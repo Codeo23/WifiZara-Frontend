@@ -50,7 +50,7 @@ const Section3 = () => {
                         </div>
                         <div className="content">
                             <h3>L'existance de l'interface du site web</h3>
-                            <p>ne interface user-friendly qui permettra aux utilisateurs d'utiliser l'application très facilement.</p>
+                            <p>Une interface user-friendly qui permettra aux utilisateurs d'utiliser l'application très facilement.</p>
                         </div>
                     </div>
                 </div>
