@@ -49,24 +49,24 @@ const Section5 = () => {
                 <div className='qlq-chiffres'>
                     <div className='title'  data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal">
                         <h1 >QUELQUES CHIFFRES</h1>
-                        <p>Nous avons des chiffres qui ont un impact</p>
+                        <p style={{color:"#fff"}}>Nous avons des chiffres qui ont un impact</p>
                     </div>
                     <div className='chiffres'>
                         <div className='chiffre'>
                             <h1>60<span>%</span></h1>
-                            <p>Diminuation de consommation par étudiant</p>
+                            <p style={{color:"#fff"}}>Diminuation de consommation par étudiant</p>
                         </div>
                         <div className='chiffre'>
                             <h1>80<span>%</span></h1>
-                            <p>Elèves connectés par jour</p>
+                            <p style={{color:"#fff"}}>Elèves connectés par jour</p>
                         </div>
                         <div className='chiffre'>
                             <h1>40<span>%</span></h1>
-                            <p>Taux d'accès favorable</p>
+                            <p style={{color:"#fff"}}>Taux d'accès favorable</p>
                         </div>
                         <div className='chiffre'>
                             <h1>25<span>%</span></h1>
-                            <p>Augmentation des compétences des élèves</p>
+                            <p style={{color:"#fff"}}>Augmentation des compétences des élèves</p>
                         </div>
                     </div>
                 </div>
