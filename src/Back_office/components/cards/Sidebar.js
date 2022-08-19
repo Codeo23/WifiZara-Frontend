@@ -21,8 +21,8 @@ const pa=[
 const Sidebar = ()=>{
     const [activemenu,setActive]=useState("home")
     const navigate = useNavigate()
-    const logout = () => {
-        localStorage.removeItem("token")
+    const logout = async () => {
+        await localStorage.removeItem('token')
         navigate("/login")
     }
     return(
@@ -39,7 +39,7 @@ const Sidebar = ()=>{
             </div>
             <div className="flex flex-col gap-y-4 items-center self-center">
                 {Usersmenus.map(usermenu=>(
-                        <div onClick={()=>setActive(usermenu.name)} className={activemenu==usermenu.name?'bg-gray-800 rounded-l-xl rounded-r-xl relative before:absolute before:w-4 before:h-8 before:-top-8 before:rounded-br-xl before:right-0 before:shadow-inverse-top  after:absolute after:w-4 after:h-8 after:-bottom-8 after:rounded-tr-xl after:right-0 after:shadow-inverse-bottom':'rounded-l-xl relative before:absolute before:w-4 before:h-8 before:-top-8 before:rounded-br-xl before:right-0 before:shadow-inverse-top  after:absolute after:w-4 after:h-8 after:-bottom-8 after:rounded-tr-xl after:right-0 after:shadow-inverse-bottom'}>
+                        <div key={usermenu.name} onClick={()=>setActive(usermenu.name)} className={activemenu==usermenu.name?'bg-gray-800 rounded-l-xl rounded-r-xl relative before:absolute before:w-4 before:h-8 before:-top-8 before:rounded-br-xl before:right-0 before:shadow-inverse-top  after:absolute after:w-4 after:h-8 after:-bottom-8 after:rounded-tr-xl after:right-0 after:shadow-inverse-bottom':'rounded-l-xl relative before:absolute before:w-4 before:h-8 before:-top-8 before:rounded-br-xl before:right-0 before:shadow-inverse-top  after:absolute after:w-4 after:h-8 after:-bottom-8 after:rounded-tr-xl after:right-0 after:shadow-inverse-bottom'}>
                             <Link to={`/admin/${usermenu.name}`}>
                                 <button
                                 className="p-4  mr-4 ml-3 rounded-xl "
