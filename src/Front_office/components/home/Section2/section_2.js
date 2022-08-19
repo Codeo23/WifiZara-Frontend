@@ -5,39 +5,39 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import "./section2.scss"
 
-const Section2 = () => {
+const Section2 = ({t}) => {
 
     return (
         <div className="section2" id="up">
             <div className="title">
-                <h1><span data-scroll data-scroll-direction="horizontal" data-scroll-speed="8" data-scroll-target="#up">QUELS SONT L'</span></h1>
-                <h1><span data-scroll data-scroll-direction="horizontal" data-scroll-speed="6" data-scroll-target="#up">INTERETS </span></h1>
-                <h1><span data-scroll data-scroll-direction="horizontal" data-scroll-speed="-6" data-scroll-target="#up">DE CET </span></h1>
-                <h1><span data-scroll data-scroll-direction="horizontal" data-scroll-speed="-4" data-scroll-target="#up">APPLICATION ? </span></h1>
+                <h1><span data-scroll data-scroll-direction="horizontal" data-scroll-speed="8" data-scroll-target="#up">{t('w')}</span></h1>
+                <h1><span data-scroll data-scroll-direction="horizontal" data-scroll-speed="6" data-scroll-target="#up">{t("a")}</span></h1>
+                <h1><span data-scroll data-scroll-direction="horizontal" data-scroll-speed="-6" data-scroll-target="#up">{t("i")} </span></h1>
+                <h1><span data-scroll data-scroll-direction="horizontal" data-scroll-speed="-4" data-scroll-target="#up">{t("ap")} </span></h1>
             </div>
             <div className="listItem" >
                 <div className="boxItem">
-                    <h5><FontAwesomeIcon icon={faGlobe} /> &nbsp;Rendre l'accès internet pour tous</h5>
+                    <h5><FontAwesomeIcon icon={faGlobe} /> &nbsp;{t('mettre')}</h5>
                     <p>
-                        Maximisation des personnes ayant accès à internet.
+                        {t('maximiser')}
                     </p>
                 </div>
                 <div className="boxItem">
-                    <h5><FontAwesomeIcon icon={faHand} /> &nbsp;Pour éviter le gaspillage</h5>
+                    <h5><FontAwesomeIcon icon={faHand} /> &nbsp;{t('gaspillage')}</h5>
                     <p>
-                    Tous les utilisateurs possèdent un forfait et un débit limité. Cela diminuera l'usage excessif du point d'accès. 
+                    {t('bonusage')}
                     </p>
                 </div>
                 <div className="boxItem">
-                    <h5><FontAwesomeIcon icon={faConnectdevelop} /> &nbsp;Développement en compétences</h5>
+                    <h5><FontAwesomeIcon icon={faConnectdevelop} /> &nbsp;{t('competences')}</h5>
                     <p>
-                        Vu que tous les étudiants peuvent accéder facilement à l'internet afin qu'ils puissent faire des recherches, réaliser des projets, etc..
+                        {t('acces')}
                     </p>
                 </div>
                 <div className="boxItem">
-                    <h5><FontAwesomeIcon icon={faWindows} /> &nbsp;La transparence</h5>
+                    <h5><FontAwesomeIcon icon={faWindows} /> &nbsp;{t('transparence')}</h5>
                     <p>
-                    Cette application fournira des statistiques sur les consommations.
+                    {t('equal')}
                     </p>
                 </div>
             </div>

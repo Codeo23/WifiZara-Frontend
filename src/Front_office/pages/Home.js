@@ -21,12 +21,12 @@ const Home = ()=> {
      <Fragment>
           <Header t={t} handleChangeLng={handleChangeLng}/>
           <Section1 t={t}/>
-          <Section2/>
-          <Section3/>
-          <Section4/>
-          <Section5/>
-          <Section6/>
-          <Footer/>
+          <Section2 t={t}/>
+          <Section3 t={t}/>
+          <Section4 t={t}/>
+          <Section5 t={t}/>
+          <Section6 t={t}/>
+          <Footer t={t}/>
      </Fragment > 
     )
   }
