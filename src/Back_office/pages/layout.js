@@ -6,9 +6,13 @@ import Add from "./Ajouter"
 import Graph from "./Graph"
 import Settings from "./Settings"
 import Addreseau from "../components/cards/Addreseaux"
-
+import {useDispatch, useSelector} from "react-redux"
+import { getAllStudents } from "../../utils/context/etudiant.reducer"
 
 const AdminLayout = () =>{
+    const dispatch = useDispatch()
+    const {token} = useSelector(state => state.authentification)
+    dispatch(getAllStudents(token))
     return(
         <Fragment>
             <div class="flex w-full min-h-screen font-sans bg-gray-800">

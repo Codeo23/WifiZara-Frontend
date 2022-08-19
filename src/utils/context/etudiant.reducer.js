@@ -14,8 +14,10 @@ export const etudiantReducer = createSlice({
 
 export const { GET_ETUDIANTS } = etudiantReducer.actions
 
-export const getAllStudents = () => (dispatch) => {
-    BaseRoute.get("/users")
+export const getAllStudents = (token) => (dispatch) => {
+    BaseRoute.get("/users",{headers:{
+        'Authorization': `bearer ${token}`
+    }})
         .then(res => console.log(res))
         .catch(error => console.log(error))
 }
