@@ -40,9 +40,9 @@ const Section1 = ({t}) => {
                                         <span>&nbsp;{t("access")}</span>
                                         <span>&nbsp;{t("equilibre")}</span>
                                    </div>
-                                   <h6>
+                                   <h4>
                                         {t("plateforme")}
-                                   </h6>
+                                   </h4>
                                    <button onClick={()=> handleScroll(".section2")}>{t("commencer")}</button>
                               </div>
                          </div>
