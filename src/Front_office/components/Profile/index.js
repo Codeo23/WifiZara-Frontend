@@ -29,7 +29,6 @@ const ProfileLog = () => {
 
     return (
         <div className='profile'>
-            <div className='header'></div>
             <div className='navBar'>
                 <NavLink to="#" className={(nav) => nav.isActive ? "link":""}>
                     <FontAwesomeIcon icon={faCircleInfo}/> A propos
