@@ -4,56 +4,60 @@ import { faSchool, faScrewdriver, faDesktop } from "@fortawesome/free-solid-svg-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBots } from '@fortawesome/free-brands-svg-icons'
 
-const Section3 = () => {
+const Section3 = ({t}) => {
     return (
         <div className='section3' >
             <div className="title" data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal">
-                <h1>NOTRE SOLUTION</h1>
+                <h1>{t("sol")}</h1>
             </div>
-
-            <div className="content-section3">
-                <div className='left'>
-                    <div>
+            <div className="content-section3" style={{alignItems:'center'}}>
+                <div className='left' >
+                    <div >
                         <div className='content'>
-                            <h3>Back d'administration des Réseaux</h3>
-                            <p> Cela rendra plus facile la gestion et la visualisation des flux dans le réseau.</p>
-                        </div>
-                        <div className='icon'>
-                            <FontAwesomeIcon icon={faScrewdriver} />
-                        </div>
-                    </div>
-                    <div>
-                        <div className='content'>
-                            <h3>Wifi Bot</h3>
-                            <p>
-                            Ce bot nous aide à se renseigner sur les consommations de chaque utilisateurs.
+                            <h3>{t('back-res')}</h3>
+                            <p> 
+                                {t('back-reseau')}
                             </p>
                         </div>
                         <div className='icon'>
-                            <FontAwesomeIcon icon={faBots} />
+                            <FontAwesomeIcon icon={faScrewdriver} style={{width:'100px'}} />
+                        </div>
+                    </div>
+                    <div style={{alignItems:'center'}}>
+                        <div className='content' style={{alignItems:'center'}}>
+                            <h3>Wifi Bot</h3>
+                            <p>
+                            {t("bot")}
+                            </p>
+                        </div>
+                        <div className='icon'>
+                            <FontAwesomeIcon icon={faBots} style={{width:'100px'}} />
                         </div>
                     </div>
                 </div>
-                <div className='right'>
-                    <div>
+                <div className='right' style={{alignItems:'center'}}>
+                    <div style={{alignItems:'center'}}>
                         <div className='icon'>
-                            <FontAwesomeIcon icon={faSchool} />
+                            <FontAwesomeIcon icon={faSchool} style={{width:'100px'}} />
                         </div>
                         <div className='content'>
-                            <h3>Back d'administration des Etudiants</h3>
-                            <p>Permettant de faciliter les manipulations sur les données des étudiants.</p>
+                            <h3>{t("back-et")}</h3>
+                            <p>
+                                {t("back-etudiants")}
+                            </p>
                         </div>
                     </div>
-                    <div>
+                    <div style={{alignItems:'center'}}>
                         <div className='icon'>
-                            <FontAwesomeIcon icon={faDesktop} />
+                            <FontAwesomeIcon icon={faDesktop} style={{width:'100px'}} />
                         </div>
                         <div className="content">
-                            <h3>L'existance de l'interface du site web</h3>
-                            <p>Une interface user-friendly qui permettra aux utilisateurs d'utiliser l'application très facilement.</p>
+                            <h3>{t("web-app")}</h3>
+                            <p>{t("webinterface")}</p>
                         </div>
                     </div>
-                </div>
+
+                </div>²
             </div>
         </div>
     )

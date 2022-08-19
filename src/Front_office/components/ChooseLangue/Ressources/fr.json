@@ -6,5 +6,26 @@
 	"connect":"Se connecter",
 	"register":"S'inscrire",
 	"plateforme":"Une plateforme complète permettant de gérer l'accès WIFI d'ENI et la consommation étudiante en temps réel.",
-	"commencer":"Commencer"
+	"commencer":"Commencer",
+	"mettre":"Mettre Internet à la disposition de tous",
+	"gaspillage":"Eviter le gaspillage de data",
+	"competences":"Développement des compétences des étudiants",
+	"transparence":"Transparence par rapport à la consommation",
+	"maximiser":"Maximiser le nombre d'étudiants ayant accès à Internet est le but principal de cette application",
+	"bonusage":"Afin d'utiliser correctement la connexion et d'éviter tout type de gaspillage, nous allons mettre en place un système de suivi pour la consommation",
+	"acces":"Nous sommes tous convaincus qu'il est essentiel d'avoir accès à Internet pour être en mesure de développer rapidement nos compétences",
+	"equal":"Établissement d'un système transparent et équilibré pour tous.C'est essentiel parce que tous les étudiants sont semblables",
+	"back-res":"Un back-office pour administrer le réseau",
+	"back-reseau":"Domaine dans lequel l'administrateur peut gérer des sous-réseaux existants.C'est ici aussi, l'administrateur pourra gérer l'utilisation des étudiants en connexion",
+	"bot":"Un outil qui nous permettra de connaître notre consommation et en particulier de suivre l'actualité de Wifizara",
+	"back-et":"Un back-office pour administrer les étudiants",
+	"back-etudiants":"Domaine qui permet à l'administrateur de gérer tous les étudiants.Qu'il s'agit d'ajouter, de rectifier l'information, de surveiller le nombre de personnes connectées, etc.",
+	"web-app":"Un interface web pour tous",
+	"webinterface":"Une interface web facile d'utilisation et multilingue qui permettra aux utilisateurs d'utiliser l'application très facilement",
+	"sol":"NOTRE SOLUTION",
+	"w":"QUELS",
+	"a":"SONT",
+	"i":"LES OBJECTIFS",
+	"ap":"DE CETTE APPLICATION"
+	
 }

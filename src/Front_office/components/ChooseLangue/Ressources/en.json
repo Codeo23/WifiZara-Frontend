@@ -6,5 +6,26 @@
 	"connect":"Log in",
 	"register":"Sign in",
 	"plateforme": "A complete platform to manage ENI's WIFI access and student consumption in real time.",
-	"commencer": "Let's start"
+	"commencer": "Let's start",
+	"mettre":"Put the Internet at everyone's disposal",
+	"gaspillage":"Avoid wasted data",
+	"competences":"Student skills development",
+	"transparence":"Transparency in  consumption",
+	"maximiser":"Maximizing the number of students with internet access is the main purpose of this application",
+	"bonusage":"In order to use the connection correctly and avoid any type of waste, we will implement a monitoring system for consumption",
+	"acces":"We are all convinced that it is essential to have access to the Internet to be able to develop our skills quickly",
+	"equal":"Establishing a transparent and balanced system for all. This is essential because all students are alike",
+	"back-res":"A back office to administer the network",
+	"back-reseau":"Domain in which the administrator can manage existing subnets. It is also here, the administrator will be able to manage the use of the students in connection",
+	"bot":"A tool that will allow us to know our consumption and in particular to follow the news of Wifizara",
+	"back-et":"A back office to administer the student",
+	"back-etudiants":"Area that allows the administrator to manage all students. Whether adding, correcting information, monitoring the number of people connected, etc.",
+	"web-app":"A web interface for everyone",
+	"webinterface":"An easy to use and multilingual web interface that will allow users to use the application very easily",
+	"sol":"OUR SOLUTION",
+	"w":"WHAT",
+	"a":"ARE",
+	"i":"THE GOALS",
+	"ap":"OF THIS APPLICATION"
+
 }
