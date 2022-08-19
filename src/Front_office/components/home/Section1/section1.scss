@@ -60,13 +60,15 @@ $tealRadiant: linear-gradient(to top, #000, #114246);
             }
 
             button {
-                background: $tealRadiant;
+                background: $teal3;
                 border-radius: 20px;
                 padding: 10px;
-                width: 70%;
-                font-weight: bold;
+                width: 50%;
+                font-size: 22px;
+                letter-spacing: 1px;
+                font-weight: lighter;
                 color: #fff;
-                transition: transform 1s;
+                transition: transform 0.5s;
                 cursor: pointer;
                 margin-top: 10px;
 

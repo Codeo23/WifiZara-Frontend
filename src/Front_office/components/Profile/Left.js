@@ -4,7 +4,6 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { ResponsiveCalendar } from '@nivo/calendar'
 import React from 'react'
-import { useTranslation } from "react-i18next";
 
 
 const data = [
@@ -431,14 +430,11 @@ const data = [
 ]
 
 const Left = () => {
-
-  const { t, i18n } = useTranslation();
-
   return (
     <div className='left'>
       <div className='top-left'>
         <span>safidy1863</span>
-        <h1>{t("bonj")}👋, Manohisafidy</h1>
+        <h1>Bonjour👋, Manohisafidy</h1>
       </div>
       <div className='description-user'>
         <span><FontAwesomeIcon icon={faUser} /> ROBUSTE Manohisafidy Vatsisoa Mario</span>
@@ -449,9 +445,9 @@ const Left = () => {
         <div className='line'></div>
         <div className='about'>
           <div className='desc'>
-            <h3><FontAwesomeIcon icon={faSignal}/>{t("stat")}</h3>
-            <h6>{t("tr")}: 4h 30min 45s</h6>
-            <h6>{t("ct")}: 1h 30min 20s</h6>
+            <h3><FontAwesomeIcon icon={faSignal}/> Statistiques de données aujourd'hui</h3>
+            <h6>Temps restant: 4h 30min 45s</h6>
+            <h6>Temps du connection: 1h 30min 20s</h6>
           </div>
           <div className='circle'>
           <CircularProgressbar value={66} text={`${66}%`} />
@@ -460,12 +456,12 @@ const Left = () => {
 
         <div className='about'>
           <div className='desc'>
-            <h3><FontAwesomeIcon icon={faSignal}/>{t("stat")}</h3>
-            <h6>{t("tr")}: 4h 30min 45s</h6>
-            <h6>{t("ct")}: 1h 30min 20s</h6>
+            <h3><FontAwesomeIcon icon={faSignal}/> Statistiques de données aujourd'hui</h3>
+            <h6>Temps restant: 4h 30min 45s</h6>
+            <h6>Temps du connection: 1h 30min 20s</h6>
           </div>
           <div className='circle'>
-            <CircularProgressbar value={66} text={`${66}%`}/>
+            <CircularProgressbar value={66} text={`${66}%`} />
           </div>
         </div>
       </div>
