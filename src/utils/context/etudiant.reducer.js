@@ -6,13 +6,12 @@ export const etudiantReducer = createSlice({
     initialState: {},
     reducers: {
         GET_ETUDIANTS: (state, action) => {
-            state = action.payload
-            return state
+            return action.payload
         }
     }
 })
 
-export const { GET_ETUDIANTS } = etudiantReducer.actions
+export const { GET_ETUDIANTS,USER_CONNECTED } = etudiantReducer.actions
 
 export const getAllStudents = (token) => (dispatch) => {
     BaseRoute.get("/users",{headers:{

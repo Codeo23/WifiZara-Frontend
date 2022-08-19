@@ -4,6 +4,10 @@ import { authReducer } from "./auth.reducer"
 import { subNetworkReducer } from "./subnetworks.reducer"
 
 export const store = configureStore({
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
     reducer:{
         etudiant: etudiantReducer.reducer,
         authentification: authReducer.reducer,

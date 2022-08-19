@@ -6,6 +6,8 @@ import Register from "../components/Auth/Register/Register"
 import Profile from "../pages/Profile"
 import Home from "./../pages/Home"
 import "./index.scss"
+import {useSelector,useDispatch} from "react-redux"
+import { userConnected } from "../../utils/context/auth.reducer"
 
 const UserLayout = () => {
      return (
@@ -13,9 +15,7 @@ const UserLayout = () => {
                <Routes>
                     <Route path="/register" element={<Register/>} exact={true}/>
                     <Route path="/login" element={<Login/>} exact={true}/>
-                    <Route element={<PrivateRoute redirectPath="/" authorization={true} />}>
-                         <Route path='profile' element={<Profile/>} />
-                    </Route>
+                    <Route path='profile' element={<Profile/>} />
                     <Route index path='/' element={<Home />} exact={true} />
                </Routes>
           </Fragment>

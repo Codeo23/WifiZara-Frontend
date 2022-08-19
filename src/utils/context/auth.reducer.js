@@ -6,7 +6,8 @@ export const authReducer = createSlice({
     name: 'authReducer',
     initialState: {
         token:"",
-        role:""
+        role:"",
+        id:""
     },
     reducers: {
         TOKEN_VALUE: (state, action) => {
@@ -14,11 +15,14 @@ export const authReducer = createSlice({
         },
         ROLE_VALUE: (state,action) => {
             return {...state,role:action.payload} 
-        }
+        },
+        ID_VALUE: (state,action) => {
+            return {...state,id:action.payload} 
+        },
     }
 })
 
-export const { TOKEN_VALUE,ROLE_VALUE } = authReducer.actions
+export const { TOKEN_VALUE,ROLE_VALUE,ID_VALUE} = authReducer.actions
 
 export const loginStudent = (data) => (dispatch) => {
     BaseRoute.post("/login", data)
@@ -26,7 +30,8 @@ export const loginStudent = (data) => (dispatch) => {
             const resultat = jwtDecode(res.data.jwt)
             dispatch(TOKEN_VALUE(res.data.jwt))
             dispatch(ROLE_VALUE(resultat.role))
-            console.log(resultat.role)
+            dispatch(ID_VALUE(resultat.id))
         })
         .catch(error => console.log(error))
 }
+

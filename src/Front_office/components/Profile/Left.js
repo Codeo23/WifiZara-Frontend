@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { ResponsiveCalendar } from '@nivo/calendar'
-import React from 'react'
+import React, { useState,useEffect } from 'react'
+import axios from 'axios'
+import {useSelector} from "react-redux"
 
 
 const data = [
@@ -430,38 +432,47 @@ const data = [
 ]
 
 const Left = () => {
+  const [user,setUser] = useState({})
+  const {id,token} = useSelector(state=>state.authentification)
+  useEffect(() => {
+      axios.get(`https://wifizara-back.iteam-s.mg/users/${id}`,{headers:{
+          'Authorization': `bearer ${token}`
+      }}).then(res=> setUser(res.data)).catch(err=> console.log("error"))
+  },[])
+  const vide = Object.keys(user).length === 0?true:false
+
   return (
     <div className='left'>
       <div className='top-left'>
-        <span>safidy1863</span>
-        <h1>Bonjour👋, Manohisafidy</h1>
+        <span>{!vide &&user.firstName}</span>
+        <h1>Bonjour👋, {!vide &&user.lastName}</h1>
       </div>
       <div className='description-user'>
-        <span><FontAwesomeIcon icon={faUser} /> ROBUSTE Manohisafidy Vatsisoa Mario</span>
-        <span><FontAwesomeIcon icon={faAt} /> robustemmanuel@gmail.com</span>
-        <span><FontAwesomeIcon icon={faPhone} /> 034 63 975 18</span>
+        <span><FontAwesomeIcon icon={faUser} /> {!vide &&user.lastName} {!vide &&user.firstName}</span>
+        <span><FontAwesomeIcon icon={faAt} />{!vide &&user.email}</span>
+        <span><FontAwesomeIcon icon={faPhone} /> {!vide &&user.phone}</span>
       </div>
       <div className='about-connection'>
         <div className='line'></div>
         <div className='about'>
           <div className='desc'>
-            <h3><FontAwesomeIcon icon={faSignal}/> Statistiques de données aujourd'hui</h3>
-            <h6>Temps restant: 4h 30min 45s</h6>
-            <h6>Temps du connection: 1h 30min 20s</h6>
+            <h3><FontAwesomeIcon icon={faSignal}/>Données aujourd'hui</h3>
+            <h6>Remaining Data:{!vide &&user.remainingData}</h6>
+            <h6>Max Data: {!vide &&user.level.maxData}</h6>
           </div>
           <div className='circle'>
-          <CircularProgressbar value={66} text={`${66}%`} />
+         {!vide && <CircularProgressbar value={parseInt(user.level.maxData)/parseInt(user.remainingData)} text={`${parseInt(user.level.maxData)/parseInt(user.remainingData)}%`} />}
           </div>
         </div>
 
         <div className='about'>
           <div className='desc'>
-            <h3><FontAwesomeIcon icon={faSignal}/> Statistiques de données aujourd'hui</h3>
-            <h6>Temps restant: 4h 30min 45s</h6>
-            <h6>Temps du connection: 1h 30min 20s</h6>
+            <h3><FontAwesomeIcon icon={faSignal}/>Temps aujourd'hui</h3>
+            <h6>Remaining Time: {!vide &&user.remainingTime}</h6>
+            <h6>Duration: {!vide &&user.level.duration}</h6>
           </div>
           <div className='circle'>
-            <CircularProgressbar value={66} text={`${66}%`} />
+          {!vide && <CircularProgressbar value={parseInt(user.level.duration)/parseInt(user.remainingTime)} text={`${parseInt(user.level.duration)/parseInt(user.remainingTime)}%`} />}
           </div>
         </div>
       </div>

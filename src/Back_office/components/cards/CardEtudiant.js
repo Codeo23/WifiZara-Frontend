@@ -1,4 +1,4 @@
-import React, { Fragment,useState,useEffect } from "react";
+import React, { Fragment,useState,useRef } from "react";
 import Color from "../palette/color";
 import Delete from "../icons/Deleteicon";
 import Pen from "../icons/Update";
@@ -37,7 +37,12 @@ const OrderReport = () =>{
     const date=new Date()
     const dateFormat=`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
     const etudiants = useSelector(state=>state.etudiant)
-    
+    const [search,setSearch] = useState("")
+    const refSearch = useRef(null)
+
+    const searchChange = () =>{
+        setSearch(refSearch.current.value)
+    }
     console.log(etudiants)
     return(
         <Fragment>
@@ -67,6 +72,7 @@ const OrderReport = () =>{
                     <div>
                         <input className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
                         placeholder="Matricule"
+                        ref={refSearch}
                         ></input>
                     </div>
                     <div>
@@ -74,6 +80,7 @@ const OrderReport = () =>{
                         className="w-full text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                         type="button"
                         style={{backgroundColor:Color.paletteTeal1}}
+                        onClick={searchChange}
                         >
                         Rechercher
                     </button>
