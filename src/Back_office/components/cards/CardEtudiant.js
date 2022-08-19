@@ -1,10 +1,8 @@
 import React, { Fragment,useState,useEffect } from "react";
-import axios from "axios"
-import jwt_decode from "jwt-decode"
 import Color from "../palette/color";
 import Delete from "../icons/Deleteicon";
 import Pen from "../icons/Update";
-
+import { useSelector } from "react-redux";
 
 const orders = [
     {
@@ -38,10 +36,9 @@ const orders = [
 const OrderReport = () =>{
     const date=new Date()
     const dateFormat=`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
-
-    const [etudiants,setEtudiants] = useState({})
-
+    const etudiants = useSelector(state=>state.etudiant)
     
+    console.log(etudiants)
     return(
         <Fragment>
             <div className="p-6 bg-gray-900 rounded-lg">
@@ -86,25 +83,25 @@ const OrderReport = () =>{
                     <tr className="text-sm font-semibold text-white">
                     <td className="py-4 border-b border-gray-700">Nom</td>
                     <td className="py-4 border-b border-gray-700">Prenom</td>
-                    <td className="py-4 border-b border-gray-700 ">Parcours </td>
-                    <td className="py-4 border-b border-gray-700 ">Niveau</td>
+                    <td className="py-4 border-b border-gray-700 ">Email </td>
+                    <td className="py-4 border-b border-gray-700 ">Phone</td>
                     <td className="py-4 border-b border-gray-700 ">Data restant</td>
-                    <td className="py-4 border-b border-gray-700 ">Action</td>
+                    <td className="py-4 border-b border-gray-700 ">Actions</td>
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map(et=>(
+                    {etudiants.length>0 ? etudiants.map(et=>(
                     <tr v-for="order in orders" className="text-sm text-gray-500">
                     <td className="py-4">
                         <div className="flex gap-4 items-center">
-                            <img width="32" className="rounded-full" src={et.avatar} alt="" />
-                            <span>{et.nom} </span>
+                            <img width="32" className="rounded-full" src={et.image} alt="" />
+                            <span>{et.lastName} </span>
                         </div>
                     </td>
-                    <td className="py-4">{et.prenom}</td>
-                    <td className="py-4 ">PRO</td>
-                    <td className="py-4 ">L2</td>
-                    <td className="py-4 ">{et.data_restant}</td>
+                    <td className="py-4">{et.firstName}</td>
+                    <td className="py-4 ">{et.email}</td>
+                    <td className="py-4 ">{et.phone}</td>
+                    <td className="py-4 ">{et.remainingData}</td>
                     <td className="py-4 ">
                         <span
                         className="px-4 flex justify-center py-1 w-24 font-medium capitalize rounded-full"
@@ -118,7 +115,7 @@ const OrderReport = () =>{
                         </span>
                     </td>
                     </tr>
-                    ))}
+                    )): null}
                 </tbody>
                 </table>
             </div>

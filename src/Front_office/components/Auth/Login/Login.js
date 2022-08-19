@@ -42,10 +42,10 @@ const Login = () => {
     useEffect(() => {
         console.log(role + " login")
         if(token!==""){
-           if(role==="2"){
+           if(role==="1"){
                 navigate("/admin/home")
            }
-           else if(role==="1") {
+           else if(role==="2") {
                navigate("/profile")
            }
         }

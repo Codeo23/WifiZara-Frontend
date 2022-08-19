@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { BaseRoute } from "../apis/BaseRoute"
 
-export const etudiantReducer = createSlice({
+export const subNetworkReducer = createSlice({
     name: 'etudiantReducer',
     initialState: {},
     reducers: {
-        GET_ETUDIANTS: (state, action) => {
+        ALL_SUBNETWORK: (state, action) => {
             state = action.payload
             return state
         }
     }
 })
 
-export const { GET_ETUDIANTS } = etudiantReducer.actions
+export const { ALL_SUBNETWORK } = subNetworkReducer.actions
 
-export const getAllStudents = (token) => (dispatch) => {
-    BaseRoute.get("/users",{headers:{
+export const getAllSubnetworks = (token) => (dispatch) => {
+    BaseRoute.get("/subnetworks",{headers:{
         'Authorization': `bearer ${token}`
     }})
-        .then(res => dispatch(GET_ETUDIANTS(res.data)))
+        .then(res => dispatch(ALL_SUBNETWORK(res.data)))
         .catch(error => console.log(error))
 }

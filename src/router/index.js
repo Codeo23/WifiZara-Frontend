@@ -13,7 +13,7 @@ const AppRouter = () => {
      let isConnected = false
      if(token!==""){
           isConnected = true
-          if(role=="2"){
+          if(role=="1"){
                isAdmin = true
           }
      }

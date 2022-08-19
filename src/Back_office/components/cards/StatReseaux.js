@@ -1,9 +1,9 @@
 import React from "react";
 import ArrowUp from "../icons/ArrowUp";
 import Coin from "../icons/Coin";
-import Order from "../icons/Order"
 import Customer from "../icons/Customer"
 import Globe from "../icons/Globe";
+import {useSelector} from "react-redux"
 
 const stats = [
     {
@@ -51,6 +51,8 @@ const stats = [
   ];
 
 const StatReseaux = () =>{
+  const allSubNetworks = useSelector(state=>state.subNetworks)
+  console.log(allSubNetworks)
     return(
         <>
             <div className="flex gap-6">
