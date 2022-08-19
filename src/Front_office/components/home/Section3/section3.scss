@@ -7,6 +7,10 @@
     .sec1{
         align-items: center;
     }
+    .fa-screwdriver {
+        color:$teal1;
+        width:100px;
+    }
     .title {
         text-align: center;
         color: #fff;
@@ -74,11 +78,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: $grey;
+            background-color: $teal1;
 
             svg {
                 font-size: 40px;
-                color: $bluedark;
+                color: #fff;
             }
         }
 
