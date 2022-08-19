@@ -1,8 +1,9 @@
-import React, { Fragment,useContext } from "react";
+import React, { Fragment,useState,useEffect } from "react";
+import axios from "axios"
+import jwt_decode from "jwt-decode"
 import Color from "../palette/color";
 import Delete from "../icons/Deleteicon";
 import Pen from "../icons/Update";
-import { EtudiantContext } from "../../../utils/context/EtudiantContext";
 
 
 const orders = [
@@ -35,13 +36,11 @@ const orders = [
   
 
 const OrderReport = () =>{
-    const {etudiants}=useContext(EtudiantContext)
     const date=new Date()
     const dateFormat=`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
 
-    const handleDelete = ()=>{
+    const [etudiants,setEtudiants] = useState({})
 
-    }
     
     return(
         <Fragment>
@@ -94,18 +93,18 @@ const OrderReport = () =>{
                     </tr>
                 </thead>
                 <tbody>
-                    {etudiants.map(order=>(
+                    {orders.map(et=>(
                     <tr v-for="order in orders" className="text-sm text-gray-500">
                     <td className="py-4">
                         <div className="flex gap-4 items-center">
-                            <img width="32" className="rounded-full" src="" alt="" />
-                            <span> RAMAMIHARIVELO </span>
+                            <img width="32" className="rounded-full" src={et.avatar} alt="" />
+                            <span>{et.nom} </span>
                         </div>
                     </td>
-                    <td className="py-4">Marihasina</td>
+                    <td className="py-4">{et.prenom}</td>
                     <td className="py-4 ">PRO</td>
                     <td className="py-4 ">L2</td>
-                    <td className="py-4 ">40 Mo</td>
+                    <td className="py-4 ">{et.data_restant}</td>
                     <td className="py-4 ">
                         <span
                         className="px-4 flex justify-center py-1 w-24 font-medium capitalize rounded-full"

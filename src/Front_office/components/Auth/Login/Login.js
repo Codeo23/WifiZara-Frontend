@@ -1,16 +1,22 @@
 import { TextField, FormControlLabel, Switch, InputAdornment } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility"
 import VisibilityOff from "@mui/icons-material/VisibilityOff"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StyleAuth } from "./../Styles";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import * as Yup from "yup"
 import "./login.scss"
 import { useForm } from "react-hook-form";
 import Logo from "./../../../Assets/logo2.png"
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios"
+import { useDispatch } from "react-redux";
+import { loginStudent } from "../../../../utils/context/etudiant.reducer";
+import jwtDecode from "jwt-decode";
 
 const Login = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const styles = StyleAuth()
     const [values, setValues] = useState(false)
     const handleClickShowPassword = () => { setValues(v => !v) }
@@ -27,8 +33,21 @@ const Login = () => {
     })
 
     const handleAddSubmit = async (data) => {
-        console.log(data)
+        const value = {email: data.email,password: data.mdp}
+        dispatch(loginStudent(value))
     }
+
+    useEffect(() => {
+        if(localStorage.getItem("token")){
+           const value_decoded = jwtDecode(localStorage.getItem("token"))
+           if(value_decoded.role=='1'){
+                navigate("/admin/home")
+           }
+           else{
+            navigate("/profile")
+           }
+        }
+    },[])
     return (
         <div className="login">
             <div className="login-content">
@@ -67,7 +86,7 @@ const Login = () => {
                             <p className="error">{errors.mdp?.message}</p>
                         </div>
 
-                        <FormControlLabel sx={{ color: "gray", fontSize: '12px' }} control={<Switch size="small" />} label="Se souviens de moi ? " />
+                        <FormControlLabel sx={{ color: "gray", fontSize: '12px' }} control={<Switch size="small" />} label="Se souvenir de moi ? " />
                     </div>
                     <div className="group-button">
                         <button className="btn-login" type="submit">Se connecter</button>

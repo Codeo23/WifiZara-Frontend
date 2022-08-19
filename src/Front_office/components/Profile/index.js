@@ -1,12 +1,16 @@
-import { faCircleInfo, faGraduationCap, faIdBadge, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faCircleInfo,faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import {NavLink } from 'react-router-dom'
 import "./profile.scss"
 import Left from "./Left"
 import Right from './Right'
+import jwt_decode from "jwt-decode";
+import axios from 'axios'
 
-const index = () => {
+const ProfileLog = () => {
+
+
     return (
         <div className='profile'>
             <div className='header'></div>
@@ -28,4 +32,4 @@ const index = () => {
     )
 }
 
-export default index
+export default ProfileLog

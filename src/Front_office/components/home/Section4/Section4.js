@@ -7,12 +7,12 @@ import "./section4.scss"
 const Opinion=[
     {
         auteur:'Marihasina',
-        descri:"Lorem ipsum dolor sit amet consectetur adipiscing elit Consectetur tortor nunc aliquam consectetur semper augue at lorem  ipsum dolor sit amet consectetur adipiscing elit Consectetur tortor nunc aliquam consectetur semper augue at met consectetur ",
+        descri:"Bravo pour cette présentation très réussie. J'ai remarqué que votre application est très utile, que tes slides étaient très claires et que tu as parfaitement interagi avec la salle.",
         pdp:'https://avatars.githubusercontent.com/u/80751503?s=400&u=6a0d04a90a1089e5ad180560b65371d56c0a20a8&v=4'
     },
     {
         auteur:'Manohisafidy',
-        descri:"Lorem ipsum dolor sit amet consectetur adipiscing elit Consectetur tortor nunc aliquam consectetur semper augue at lorem  ipsum dolor sit amet consectetur adipiscing elit Consectetur tortor nunc aliquam consectetur semper augue at met consectetur ",
+        descri:"Cette application nous a vraiment rendu la tâche facile.",
         pdp:'https://avatars.githubusercontent.com/u/93115585?v=4'
     },
     {
@@ -44,7 +44,7 @@ const Section4 = () => {
                 <div className="slide-box">
                     <Slider {...settings}>
                         {Opinion.map(op => (
-                            <div className="slide-card">
+                            <div key={op.auteur} className="slide-card">
                                 <div className="slide-paragraph">{op.descri}</div>
                                 <div className="slide-avatar">
                                     <div className="avatar">
