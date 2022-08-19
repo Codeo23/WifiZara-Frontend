@@ -125,9 +125,9 @@ const NavBar = ({ state, setState }) => {
                 </ul>
               </nav>
               <div ref={el => (info = el)} className='info'>
-                <h3>Wifizara</h3>
+                <h3>  </h3>
                 <p>
-                  Nous sommes des 
+                  
                 </p>
               </div>
             </div>

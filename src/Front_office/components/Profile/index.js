@@ -7,19 +7,19 @@ import Left from "./Left"
 import Right from './Right'
 import jwt_decode from "jwt-decode";
 import axios from 'axios'
-import { useTranslation } from "react-i18next";
 
 const ProfileLog = () => {
-    const { t, i18n } = useTranslation();
+
+
     return (
         <div className='profile'>
             <div className='header'></div>
             <div className='navBar'>
                 <NavLink to="#" className={(nav) => nav.isActive ? "link":""}>
-                    <FontAwesomeIcon icon={faCircleInfo}/>{t("aprop")}
+                    <FontAwesomeIcon icon={faCircleInfo}/> A propos
                 </NavLink>
                 <NavLink to="#">
-                    <FontAwesomeIcon icon={faRightFromBracket}/>{t("disco")}
+                    <FontAwesomeIcon icon={faRightFromBracket}/> Se deconnecter
                 </NavLink>
             </div>
             <div className='content-profile'>

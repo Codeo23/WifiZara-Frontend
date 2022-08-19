@@ -30,10 +30,3 @@ export const loginStudent = (data) => (dispatch) => {
         })
         .catch(error => console.log(error))
 }
-
-export const regsiterStudent = (data) => (dispatch) => {
-    BaseRoute.post("/register",data)
-        .then(res => {
-            dispatch()
-        })
-}

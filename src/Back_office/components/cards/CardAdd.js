@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Color from "../palette/color";
 import * as Yup from "yup"
 import {useForm} from "react-hook-form"
@@ -7,13 +7,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 
 export default function CardAdd() {
-    const [values,setValues] = useState({
-      role:"",
-      image:"/crew.png",
-      estAccepte:false,
-      remainingData: 2000,
-      remainingTime: 2000
-    })
 
     const validationSchema = Yup.object().shape({
       nom: Yup.string("Votre nom ne doit contenir que des lettres")
@@ -21,13 +14,7 @@ export default function CardAdd() {
       prenom: Yup.string("Votre prenom ne doit contenir que des lettres")
         .required('Votre prenom est obligatoire'),
       matricule: Yup.number("Votre matricule doit contenir seulement des chiffres")
-        .required('Votre matricule est osssbligatoire'),
-      email: Yup.string().email("Veuillez entrer une adresse email valide")
-        .required("Votre adresse e-mail est obligatoire"),
-      mdp: Yup.string().required('Mot de passe correct obligatoire'),
-      phone: Yup.number("Votre numero de téléphone doit contenir seulement des chiffres")
-        .required("Votre numéro de téléphone obligatoire"),
-      role:Yup.string().required('Role obligatoire')
+        .required('Votre matricule est osssbligatoire')
     });
     const {
       register,
@@ -38,21 +25,8 @@ export default function CardAdd() {
     });
 
 
-    const HandleAddEtudiant = (data) =>{
-      // const valuesForm = {
-      //   email: data.email,
-      //   firstName: data.nom,
-      //   image:values.image,
-      //   lastName:data.prenom,
-      //   matriculate: data.matricule,
-      //   password: data.mdp,
-      //   phone: data.phone,
-      //   remainingData: values.remainingData,
-      //   remainingTime: values.remainingTime,
-      //   role: values.role
-      // }
-      console.log("Wait...")
-      console.log(data)
+    const HandleAddEtudiant = async(data) =>{
+      console.log(data);
     }
 
 
@@ -65,7 +39,7 @@ export default function CardAdd() {
               <div className="rounded-t mb-0 px-6 py-6">
                 <div className="text-center mb-3">
                   <h6 className="text-blueGray-500 text-sm font-bold">
-                    Ajouter un nouveau utilisateur
+                    Ajouter un étudiant
                   </h6>
                 </div>
                 <div className="btn-wrapper text-center">
@@ -131,16 +105,15 @@ export default function CardAdd() {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Email
+                      Niveau
                     </label>
-                    <input
-                      type="text"
-                      name='email'
-                      {...register('email')}
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
-                      placeholder="Email"
-                    />
-                    <p className="text-red-500 italic">{errors.email?.message}</p>
+                    <select className = "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black">
+                      <option>L1</option>
+                      <option>L2</option>
+                      <option>L3</option>
+                      <option>M1</option>
+                      <option>M2</option>
+                    </select>
                   </div>
                   <div className="relative w-full mb-3">
                     <label
@@ -149,28 +122,23 @@ export default function CardAdd() {
                     >
                       Rôle
                     </label>
-                    <select name='role'
-                      {...register('role')}  defaultValue="2" onChange={(e)=>setValues({...values,role:e.target.value})} className = "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black">
-                      <option value="2">Etudiant</option>
-                      <option value="1">Admin</option>
+                    <select className = "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black">
+                      <option>Utulisateur</option>
+                      <option>Admin</option>
                     </select>
-                    <p className="text-red-500 italic">{errors.role?.message}</p>
                   </div>
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Mot de passe
+                      Parcours
                     </label>
-                    <input
-                      type="text"
-                      name='mdp'
-                      {...register('mdp')}
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
-                      placeholder="Mot de passe"
-                    />
-                    <p className="text-red-500 italic">{errors.mdp?.message}</p>
+                    <select className = "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black">
+                      <option>GB</option>
+                      <option>SR</option>
+                      <option>IG</option>
+                    </select>
                   </div>
                   <div>
                     <label className="inline-flex items-center cursor-pointer">
@@ -178,8 +146,6 @@ export default function CardAdd() {
                         id="customCheckLogin"
                         type="checkbox"
                         className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
-                        checked={values.estAccepte}
-                        onChange={(e) =>  setValues({...values,estAccepte:e.target.checked})}
                       />
                       <span className="ml-2 text-sm font-semibold text-blueGray-600">
                         J'accepte {" "}
@@ -199,7 +165,6 @@ export default function CardAdd() {
                       type="submit"
                       style={{backgroundColor:Color.paletteTeal1}}
                       value='Ajouter'
-                      // disabled={!values.estAccepte}
                     />
                   </div>
                 </form>
