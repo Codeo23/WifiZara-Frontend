@@ -19,7 +19,7 @@ $tealRadiant: linear-gradient(to top, #000, #114246);
         height: 100%;
         position: relative;
         display: grid;
-        grid-template-columns: 55% 45%;
+        grid-template-columns: 50% 50%;
 
         .content-left {
             background: $blueDark;
@@ -45,10 +45,14 @@ $tealRadiant: linear-gradient(to top, #000, #114246);
 
                 }
             }
-
-            h6 {
-                margin-top: 80px;
-                color: #fff;
+            h4 {
+                font-size: 24px !important;
+                line-height: 32px !important;
+                font-weight: 500;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                color: #8193b2 !important;
+                
 
                 @media (max-width: 1153px) {
                     margin-top: 40px;

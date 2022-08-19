@@ -1,0 +1,8 @@
+GET https://wifizara-back.iteam-s.mg/users
+Content-Type: application/json
+
+{
+
+
+}
+          
