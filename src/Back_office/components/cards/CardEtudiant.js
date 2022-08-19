@@ -4,7 +4,6 @@ import jwt_decode from "jwt-decode"
 import Color from "../palette/color";
 import Delete from "../icons/Deleteicon";
 import Pen from "../icons/Update";
-import { EtudiantContext } from "../../../utils/context/EtudiantContext";
 
 
 const orders = [
