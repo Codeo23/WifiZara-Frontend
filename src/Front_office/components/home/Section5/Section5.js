@@ -11,7 +11,7 @@ const images = [
     {id:3,src:"https://assets.website-files.com/611d114cb3a54a7930597408/611d114cb3a54a2028597455_image-home-v1-testimonials-startup-x-template.jpg",nom:'Stephanot Sedraina'},
 ]
 
-const Section5 = () => {
+const Section5 = ({t}) => {
     const settings = {
         autoplay: true,
         dots: false,
@@ -48,25 +48,25 @@ const Section5 = () => {
 
                 <div className='qlq-chiffres'>
                     <div className='title'  data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal">
-                        <h1 >QUELQUES CHIFFRES</h1>
-                        <p style={{color:"#fff"}}>Nous avons des chiffres qui ont un impact</p>
+                        <h1 >{t("chiffre")}</h1>
+                        <p style={{color:"#fff"}}>{t("impa")}</p>
                     </div>
                     <div className='chiffres'>
                         <div className='chiffre'>
                             <h1>60<span>%</span></h1>
-                            <p style={{color:"#fff"}}>Diminuation de consommation par étudiant</p>
+                            <p style={{color:"#fff"}}>{t("dim")}</p>
                         </div>
                         <div className='chiffre'>
                             <h1>80<span>%</span></h1>
-                            <p style={{color:"#fff"}}>Elèves connectés par jour</p>
+                            <p style={{color:"#fff"}}>{t("cj")}</p>
                         </div>
                         <div className='chiffre'>
                             <h1>40<span>%</span></h1>
-                            <p style={{color:"#fff"}}>Taux d'accès favorable</p>
+                            <p style={{color:"#fff"}}>{t("fav")}</p>
                         </div>
                         <div className='chiffre'>
                             <h1>25<span>%</span></h1>
-                            <p style={{color:"#fff"}}>Augmentation des compétences des élèves</p>
+                            <p style={{color:"#fff"}}>{t("au")}</p>
                         </div>
                     </div>
                 </div>

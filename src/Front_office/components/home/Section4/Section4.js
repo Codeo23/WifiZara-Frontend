@@ -22,8 +22,7 @@ const Opinion=[
     }
 ]
 
-
-const Section4 = () => {
+const Section4 = ({t}) => {
     const settings = {
         autoplay:true,
         dots: true,
@@ -36,10 +35,9 @@ const Section4 = () => {
     
             <div className="section4">
                 <p>
-                    Gérer des 2000 étudiants n'est pas du tout facile,
-                    malgré les atouts.
+                   {t("ges")}
                 </p>
-                <h2>Voici quelques retour de nos étudiants:</h2>
+                <h2>{t("voi")}</h2>
             <div className="slide">
                 <div className="slide-box">
                     <Slider {...settings}>
