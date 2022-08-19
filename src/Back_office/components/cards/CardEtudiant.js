@@ -29,13 +29,14 @@ const OrderReport = () =>{
                             <option>L3</option>
                             <option>M1</option>
                             <option>M2</option>
+                            <option>Tous</option>
                         </select>
                     </div>
                     <div>
                         <select className = "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black">
-                        <option>GB</option>
-                        <option>SR</option>
-                        <option>IG</option>
+                            <option>ACITVE</option>
+                            <option>SANCTIONNE</option>
+                            <option>Tous</option>
                         </select>
                     </div>
                     <div>
@@ -61,27 +62,29 @@ const OrderReport = () =>{
                     <td className="py-4 border-b border-gray-700">N° Matricule</td>
                     <td className="py-4 border-b border-gray-700">Nom & Prenom(s)</td>
                     <td className="py-4 border-b border-gray-700 ">Email </td>
-                    <td className="py-4 border-b border-gray-700 ">Phone</td>
+                    <td className="py-4 border-b border-gray-700 ">Niveau</td>
                     <td className="py-4 border-b border-gray-700 ">Data restant</td>
+                    <td className="py-4 border-b border-gray-700 ">Status</td>
                     <td className="py-4 border-b border-gray-700 ">Actions</td>
                     </tr>
                 </thead>
                 <tbody>
                     {etudiants.length>0 ? 
                         etudiants
-                        .filter(liste=>liste.matriculate.includes(search))
+                        .filter(liste=>liste.role=='2' && liste.matriculate.includes(search))
                         .map(et=>(
                     <tr v-for="order in orders" className="text-sm text-gray-500">
                     <td className="py-4">
                         <div className="flex gap-4 items-center">
-                            <img width="32" className="rounded-full" src={et.image} alt="" />
+                            <img width="32" className="rounded-full" src={et.image.replace("http://127.0.0.1:6000","https://wifizara-back.iteam-s.mg")} alt="" />
                             <span>{et.matriculate} </span>
                         </div>
                     </td>
                     <td className="py-4">{et.firstName} {et.lastName}</td>
                     <td className="py-4 ">{et.email}</td>
-                    <td className="py-4 ">{et.phone}</td>
+                    <td className="py-4 ">{et.level.wording}</td>
                     <td className="py-4 ">{et.remainingData}</td>
+                    <td className="py-4 ">{et.status}</td>
                     <td className="py-4 ">
                         <span
                         className="px-4 flex justify-center py-1 w-24 font-medium capitalize rounded-full"

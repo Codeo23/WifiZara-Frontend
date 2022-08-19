@@ -37,6 +37,9 @@ export default function CardAdd() {
       resolver: yupResolver(validationSchema)
     });
 
+    const submitValues = () =>{
+      console.log("Clock...")
+    }
 
     const HandleAddEtudiant = (data) =>{
       // const valuesForm = {

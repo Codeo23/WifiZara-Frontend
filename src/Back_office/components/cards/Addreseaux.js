@@ -3,15 +3,19 @@ import Color from "../palette/color";
 import * as Yup from "yup"
 import {useForm} from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
+import {useDispatch, useSelector} from "react-redux"
+import { addSubNetwork } from "../../../utils/context/subnetworks.reducer";
 
 export default function Addreseau() {
+  const dispatch = useDispatch()
+  const {token} = useSelector(state=> state.authentification)
+  console.log(token)
   const validationSchema = Yup.object().shape({
     nom: Yup.string("Le nom ne doit contenir que des lettres")
       .required('Le  nom du sous reseau  est obligatoire'),
-    volume: Yup.number("Le volume ne doit contenir que des lettres")
+    volume: Yup.number("Le volume ne doit contenir que des chiffres")
       .required('Le volume du sous reseau est obligatoire'),
-    adresse: Yup.string("L'adresse ne doit contenir que des lettres")
-      .required("L'adresse est obligatoire")
+    adresse: Yup.string().required("L'adresse est obligatoire")
   });
   const {
     register,
@@ -21,6 +25,10 @@ export default function Addreseau() {
     resolver: yupResolver(validationSchema)
   });
 
+  const handleAddSubNetwork = (data) => {
+    const values = {size:data.volume,name:data.nom,adresse:data.adresse}
+    dispatch(addSubNetwork(values),token)
+  }
   return (
     <>
       <div className="container mx-auto px-4 h-full text-white">
@@ -41,7 +49,7 @@ export default function Addreseau() {
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <div className="text-blueGray-400 text-center mb-3 font-bold">
                 </div>
-                <form>
+                <form onClick={handleSubmit(handleAddSubNetwork)}>
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -70,8 +78,10 @@ export default function Addreseau() {
                       type="number"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
                       placeholder="Volume total"
+                      name= "volume"
+                      {...register('volume')}
                     />
-                    <p className="text-red-500 italic">{errors.nom?.message}</p>
+                    <p className="text-red-500 italic">{errors.volume?.message}</p>
                   </div>
 
                   <div className="relative w-full mb-3">
@@ -82,9 +92,11 @@ export default function Addreseau() {
                       adresse
                     </label>
                     <input
-                      type="Text"
+                      type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
                       placeholder="Categorie"
+                      name= "adresse"
+                      {...register('adresse')}
                     />
                     <p className="text-red-500 italic">{errors.adresse?.message}</p>
                   </div>
@@ -110,7 +122,7 @@ export default function Addreseau() {
                   <div className="text-center mt-6">
                     <button
                       className="text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                      type="button"
+                      type="submit"
                       style={{backgroundColor:Color.paletteTeal1}}
                     >
                       Ajouter
