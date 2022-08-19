@@ -16,7 +16,7 @@ export const { GET_ETUDIANTS } = etudiantReducer.actions
 
 export const loginStudent = (data) => (dispatch) => {
     BaseRoute.post("/login", data)
-        .then(res => console.log(res))
+        .then(res => localStorage.setItem("token",res.data.jwt))
         .catch(error => console.log(error))
 }
 

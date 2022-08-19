@@ -1,13 +1,12 @@
 import React,{useState} from 'react'
 import Home from '../icons/Home';
 import Graph from '../icons/Graph';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import Settings from '../icons/Settings';
 import AddIcon from '../icons/AddIcon';
 import Color from "../palette/color"
 import Etudiant from '../icons/Etudiant';
 import AddIcon2 from '../icons/addIcon2';
-
 
 const Usersmenus = [
     { name: "home", icon: <Etudiant/> },
@@ -21,10 +20,15 @@ const pa=[
 
 const Sidebar = ()=>{
     const [activemenu,setActive]=useState("home")
-
+    const navigate = useNavigate()
+    const logout = () => {
+        localStorage.removeItem("token")
+        navigate("/login")
+    }
     return(
         <>
         <div className="flex flex-col gap-y-4 items-center py-8 w-48 bg-gray-900">
+            <button onClick={() => logout()}>Se deconnecter</button>
             <button className="p-2 bg-opacity-20 rounded-xl ">
             <Link to={`/`}>
                 <img src='/crew.png' width='100px' height='50px' alt="logo"/>
