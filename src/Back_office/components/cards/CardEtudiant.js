@@ -1,43 +1,18 @@
-import React, { Fragment,useState,useEffect } from "react";
+import React, { Fragment,useState,useRef } from "react";
 import Color from "../palette/color";
 import Delete from "../icons/Deleteicon";
 import Pen from "../icons/Update";
 import { useSelector } from "react-redux";
 
-const orders = [
-    {
-      avatar: "https://avatars.githubusercontent.com/u/80751503?s=400&u=6a0d04a90a1089e5ad180560b65371d56c0a20a8&v=4",
-      name: "RAMAMIHARIVELO",
-      prenom: "Marihasina",
-      parcours: "IG",
-      niveau: "L1",
-      data_restant:12
-    },
-    {
-      avatar: "https://avatars.githubusercontent.com/u/93115585?v=4",
-      name: "ROBUSTE",
-      prenom: "Manohisafidy",
-      parcours: "SR",
-      niveau: "M1",
-      data_restant:20
-    },
-    {
-      avatar: "https://avatars.githubusercontent.com/u/82655694?v=4",
-      name: "RAKOTO",
-      prenom: "Barbie",
-      parcours: "IG",
-      niveau: "L2",
-      data_restant:40
-    },
-    
-  ];
-  
-
 const OrderReport = () =>{
     const date=new Date()
+    const [search,setSearch] = useState("")
     const dateFormat=`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
     const etudiants = useSelector(state=>state.etudiant)
-    
+    const searchRef = useRef(null)
+    const handleChangeSearch = () =>{
+        setSearch(searchRef.current.value)
+    }
     console.log(etudiants)
     return(
         <Fragment>
@@ -66,6 +41,7 @@ const OrderReport = () =>{
                     <div>
                         <input className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
                         placeholder="Matricule"
+                        ref={searchRef}
                         ></input>
                     </div>
                     <div>
@@ -73,6 +49,7 @@ const OrderReport = () =>{
                         className="w-full text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                         type="button"
                         style={{backgroundColor:Color.paletteTeal1}}
+                        onClick={handleChangeSearch}
                         >
                         Rechercher
                     </button>
@@ -81,8 +58,8 @@ const OrderReport = () =>{
                 <table className="w-full">
                 <thead style={{backgroundColor:Color.paletteTeal1}}>
                     <tr className="text-sm font-semibold text-white">
-                    <td className="py-4 border-b border-gray-700">Nom</td>
-                    <td className="py-4 border-b border-gray-700">Prenom</td>
+                    <td className="py-4 border-b border-gray-700">N° Matricule</td>
+                    <td className="py-4 border-b border-gray-700">Nom & Prenom(s)</td>
                     <td className="py-4 border-b border-gray-700 ">Email </td>
                     <td className="py-4 border-b border-gray-700 ">Phone</td>
                     <td className="py-4 border-b border-gray-700 ">Data restant</td>
@@ -90,15 +67,18 @@ const OrderReport = () =>{
                     </tr>
                 </thead>
                 <tbody>
-                    {etudiants.length>0 ? etudiants.map(et=>(
+                    {etudiants.length>0 ? 
+                        etudiants
+                        .filter(liste=>liste.matriculate.includes(search))
+                        .map(et=>(
                     <tr v-for="order in orders" className="text-sm text-gray-500">
                     <td className="py-4">
                         <div className="flex gap-4 items-center">
                             <img width="32" className="rounded-full" src={et.image} alt="" />
-                            <span>{et.lastName} </span>
+                            <span>{et.matriculate} </span>
                         </div>
                     </td>
-                    <td className="py-4">{et.firstName}</td>
+                    <td className="py-4">{et.firstName} {et.lastName}</td>
                     <td className="py-4 ">{et.email}</td>
                     <td className="py-4 ">{et.phone}</td>
                     <td className="py-4 ">{et.remainingData}</td>

@@ -8,6 +8,9 @@ export const etudiantReducer = createSlice({
         GET_ETUDIANTS: (state, action) => {
             state = action.payload
             return state
+        },
+        ADD_ETUDIANT : (state,action) => {
+            state.push(action.payload)
         }
     }
 })

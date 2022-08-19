@@ -4,32 +4,34 @@ import Coin from "../icons/Coin";
 import Order from "../icons/Order"
 import Customer from "../icons/Customer"
 import Globe from "../icons/Globe";
+import {useSelector} from "react-redux"
 
-const stats = [
-    {
-      title: "Total inscrits",
-      percentage: "+0.240%",
-      value: "100%",
-      status: "up",
-      icon: <Coin/>,
-    },
-    {
-      title: "Total connectés actuellement",
-      percentage: "74.40%",
-      value: "1564",
-      status: "down",
-      icon: <Globe/>,
-    },
-    {
-      title: "Total non connectés actuellement",
-      percentage: "25.60%",
-      value: "436",
-      status: "up",
-      icon: <Customer/>,
-    },
-  ];
 
 const StatsCard = () =>{
+    const allEtudiants = useSelector(state=>state.etudiant)
+    const stats = [
+        {
+          title: "Total inscrits",
+          percentage: "+0.240%",
+          value: allEtudiants.length,
+          status: "up",
+          icon: <Coin/>,
+        },
+        {
+          title: "Total connectés actuellement",
+          percentage: "74.40%",
+          value: "1564",
+          status: "down",
+          icon: <Globe/>,
+        },
+        {
+          title: "Total non connectés actuellement",
+          percentage: "25.60%",
+          value: "436",
+          status: "up",
+          icon: <Customer/>,
+        },
+      ];
     return(
         <>
             <div className="flex gap-6">
