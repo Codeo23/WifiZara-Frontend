@@ -8,11 +8,13 @@ import Settings from "./Settings"
 import Addreseau from "../components/cards/Addreseaux"
 import {useDispatch, useSelector} from "react-redux"
 import { getAllStudents } from "../../utils/context/etudiant.reducer"
+import { getAllSubnetworks } from "../../utils/context/subnetworks.reducer"
 
 const AdminLayout = () =>{
     const dispatch = useDispatch()
     const {token} = useSelector(state => state.authentification)
     dispatch(getAllStudents(token))
+    dispatch(getAllSubnetworks(token))
     return(
         <Fragment>
             <div class="flex w-full min-h-screen font-sans bg-gray-800">
