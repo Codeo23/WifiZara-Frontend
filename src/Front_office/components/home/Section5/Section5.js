@@ -29,7 +29,7 @@ const Section5 = () => {
 
                         {[1,2,3,4,5].map((item) =>
                             <div key={`${item.id}`} className="box-image">
-                                <img src="https://get.pxhere.com/photo/avatar-people-person-business-user-man-character-set-icon-portrait-office-profile-pictograph-social-adult-suit-technology-individual-head-face-design-concept-emblem-symbol-smile-formal-elements-facial-expression-cartoon-male-forehead-cheek-chin-human-behavior-standing-gentleman-businessperson-mouth-clip-art-communication-conversation-public-speaking-finger-illustration-facial-hair-happiness-organization-graphics-1447663.jpg" alt={item.name} />
+                                <img src="https://assets.website-files.com/611d114cb3a54a7930597408/611d114cb3a54a2028597455_image-home-v1-testimonials-startup-x-template.jpg" alt={item.name} />
                                 <div className='box-text'>
                                     <p className="p1">
                                         “social network”
@@ -38,7 +38,7 @@ const Section5 = () => {
                                         {item.name}
                                     </p>
                                     <p className='p3'>
-                                        Un super fan de Marvel series
+                                        Un administrateur reseaux et système
                                     </p>
                                 </div>
                             </div>
