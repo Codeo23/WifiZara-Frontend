@@ -65,7 +65,7 @@ const handleAddSubmit = async(data) => {
               <a href="h"><FontAwesomeIcon icon={faTwitter} /></a>
               <a href="h"><FontAwesomeIcon icon={faLinkedin} /></a>
             </div>
-            <div>
+            <div className="feed">
               <form onClick={handleSubmit(handleAddSubmit)}>
                 <TextField variant="outlined" size="small" name="feedback" label="FeedBack" type="text"
                   InputProps={{
@@ -76,7 +76,7 @@ const handleAddSubmit = async(data) => {
                   inputRef={login}
                 />
                 <p className="error">{errors.feedback?.message}</p>
-                <button type="submit">Envoyer</button>
+                <button id="send" type="submit">Envoyer</button>
               </form>
             </div>
           </div>

@@ -11,9 +11,6 @@ const Home = ()=>{
     return(
             <>
                 <main class="flex flex-col flex-1 gap-6 p-4">
-                    <header>
-                        
-                    </header>
                     <hr class="border-gray-700" />
                     <StatsCard />
                     <CardEtudiant />

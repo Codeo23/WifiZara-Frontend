@@ -1,33 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import Color from "../palette/color";
 import * as Yup from "yup"
 import {useForm} from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch, useSelector } from "react-redux";
+import { addStudent } from "../../../utils/context/etudiant.reducer";
 
 
 
 export default function CardAdd() {
-    const [values,setValues] = useState({
-      role:"",
-      image:"/crew.png",
-      estAccepte:false,
-      remainingData: 2000,
-      remainingTime: 2000
-    })
-
+    const dispatch = useDispatch()
+    const {token} = useSelector(state=>state.authentification)
     const validationSchema = Yup.object().shape({
-      nom: Yup.string("Votre nom ne doit contenir que des lettres")
+      lastName: Yup.string("Votre nom ne doit contenir que des lettres")
         .required('Votre nom est obligatoire'),
-      prenom: Yup.string("Votre prenom ne doit contenir que des lettres")
+      firstName: Yup.string("Votre prenom ne doit contenir que des lettres")
         .required('Votre prenom est obligatoire'),
-      matricule: Yup.number("Votre matricule doit contenir seulement des chiffres")
+      matriculate: Yup.number("Votre matricule doit contenir seulement des chiffres")
         .required('Votre matricule est osssbligatoire'),
       email: Yup.string().email("Veuillez entrer une adresse email valide")
         .required("Votre adresse e-mail est obligatoire"),
-      mdp: Yup.string().required('Mot de passe correct obligatoire'),
-      phone: Yup.number("Votre numero de téléphone doit contenir seulement des chiffres")
-        .required("Votre numéro de téléphone obligatoire"),
-      role:Yup.string().required('Role obligatoire')
+      password: Yup.string().required('Mot de passe correct obligatoire'),
+      phone: Yup.number("Votre numéro de téléphone doit contenir seulement des chiffres")
+      .required('Votre numéro de téléphone est osssbligatoire'),
+      role:Yup.string("Votre role ne doit contenir que des lettres")
+      .required('Votre role est obligatoire'),
+      levelWording:Yup.string("Votre niveau ne doit contenir que des lettres")
+      .required('Votre niveau est obligatoire'),
     });
     const {
       register,
@@ -37,22 +36,22 @@ export default function CardAdd() {
       resolver: yupResolver(validationSchema)
     });
 
+    const submitValues = () =>{
+      console.log("Clock...")
+    }
 
-    const HandleAddEtudiant = (data) =>{
-      // const valuesForm = {
-      //   email: data.email,
-      //   firstName: data.nom,
-      //   image:values.image,
-      //   lastName:data.prenom,
-      //   matriculate: data.matricule,
-      //   password: data.mdp,
-      //   phone: data.phone,
-      //   remainingData: values.remainingData,
-      //   remainingTime: values.remainingTime,
-      //   role: values.role
-      // }
-      console.log("Wait...")
-      console.log(data)
+    const HandleAddEtudiant = async(data) =>{
+      const formData = new FormData()
+      formData.append("firstName",data.firstName)
+      formData.append("lastName",data.lastName)
+      formData.append("email",data.email)
+      formData.append("levelWording",data.levelWording)
+      formData.append("matriculate",data.matriculate)
+      formData.append("password",data.password)
+      formData.append("phone",data.phone)
+      formData.append("role",data.role)
+      formData.append("image","/crew.png")
+      dispatch(addStudent(formData,token))
     }
 
 
@@ -65,7 +64,7 @@ export default function CardAdd() {
               <div className="rounded-t mb-0 px-6 py-6">
                 <div className="text-center mb-3">
                   <h6 className="text-blueGray-500 text-sm font-bold">
-                    Ajouter un nouveau utilisateur
+                    Ajouter un étudiant
                   </h6>
                 </div>
                 <div className="btn-wrapper text-center">
@@ -86,12 +85,12 @@ export default function CardAdd() {
                     </label>
                     <input
                       type="text"
-                      name='nom'
-                      {...register('nom')}
+                      name='lastName'
+                      {...register('lastName')}
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
                       placeholder="Nom"
                     />
-                    <p className="text-red-500 italic">{errors.nom?.message}</p>
+                    <p className="text-red-500 italic">{errors.lastName?.message}</p>
                   </div>
                   <div className="relative w-full mb-3">
                     <label
@@ -102,12 +101,12 @@ export default function CardAdd() {
                     </label>
                     <input
                       type="text"
-                      name='prenom'
-                      {...register('prenom')}
+                      name='firstName'
+                      {...register('firstName')}
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
-                      placeholder="Prenom"
+                      placeholder="Prénom(s)"
                     />
-                    <p className="text-red-500 italic">{errors.prenom?.message}</p>
+                    <p className="text-red-500 italic">{errors.firstName?.message}</p>
                   </div>
 
                   <div className="relative w-full mb-3">
@@ -119,12 +118,39 @@ export default function CardAdd() {
                     </label>
                     <input
                       type="number"
-                      name='matricule'
-                      {...register('matricule')}
+                      name='matriculate'
+                      {...register('matriculate')}
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
                       placeholder="Matricule"
                     />
-                    <p className="text-red-500 italic">{errors.matricule?.message}</p>
+                    <p className="text-red-500 italic">{errors.matriculate?.message}</p>
+                  </div>
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Niveau
+                    </label>
+                    <select  {...register('levelWording')} name="levelWording" className = "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black">
+                      <option value="L1">L1</option>
+                      <option value="L2">L2</option>
+                      <option value="L3">L3</option>
+                      <option value="M1">M1</option>
+                      <option value="M2">M2</option>
+                    </select>
+                  </div>
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Rôle
+                    </label>
+                    <select name="role"  {...register('role')} className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black">
+                      <option value="2">Etudiant</option>
+                      <option value="1">Admin</option>
+                    </select>
                   </div>
                   <div className="relative w-full mb-3">
                     <label
@@ -147,30 +173,32 @@ export default function CardAdd() {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Rôle
+                      Mot de passe
                     </label>
-                    <select name='role'
-                      {...register('role')}  defaultValue="2" onChange={(e)=>setValues({...values,role:e.target.value})} className = "border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black">
-                      <option value="2">Etudiant</option>
-                      <option value="1">Admin</option>
-                    </select>
-                    <p className="text-red-500 italic">{errors.role?.message}</p>
+                    <input
+                      type="text"
+                      name='password'
+                      {...register('password')}
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
+                      placeholder="Mot de passe"
+                    />
+                    <p className="text-red-500 italic">{errors.password?.message}</p>
                   </div>
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Mot de passe
+                      Teléphone
                     </label>
                     <input
-                      type="text"
-                      name='mdp'
-                      {...register('mdp')}
+                      type="number"
+                      name='phone'
+                      {...register('phone')}
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-black"
-                      placeholder="Mot de passe"
+                      placeholder="Numéro de téléphone"
                     />
-                    <p className="text-red-500 italic">{errors.mdp?.message}</p>
+                    <p className="text-red-500 italic">{errors.phone?.message}</p>
                   </div>
                   <div>
                     <label className="inline-flex items-center cursor-pointer">
@@ -178,8 +206,6 @@ export default function CardAdd() {
                         id="customCheckLogin"
                         type="checkbox"
                         className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
-                        checked={values.estAccepte}
-                        onChange={(e) =>  setValues({...values,estAccepte:e.target.checked})}
                       />
                       <span className="ml-2 text-sm font-semibold text-blueGray-600">
                         J'accepte {" "}
@@ -199,7 +225,6 @@ export default function CardAdd() {
                       type="submit"
                       style={{backgroundColor:Color.paletteTeal1}}
                       value='Ajouter'
-                      // disabled={!values.estAccepte}
                     />
                   </div>
                 </form>

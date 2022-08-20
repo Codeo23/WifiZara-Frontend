@@ -73,7 +73,7 @@ const Login = () => {
                             <p className="error">{errors.email?.message}</p>
                         </div>
                         <div>
-                            <TextField name="mdp" variant="outlined" size="small" className={styles.textField} label="Mot de passe" type={values.showPassword ? 'text' : 'password'}
+                            <TextField name="mdp" variant="outlined" size="small" className={styles.textField} label="Mot de passe" type={values ? 'text' : 'password'}
                                 InputLabelProps={{ className: styles.label }}
                                 InputProps={{
                                     className: styles.root,

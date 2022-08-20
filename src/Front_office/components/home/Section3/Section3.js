@@ -4,8 +4,6 @@ import { faSchool, faScrewdriver, faDesktop } from "@fortawesome/free-solid-svg-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBots } from '@fortawesome/free-brands-svg-icons'
 
-
-
 const Section3 = ({t}) => {
     return (
         <div className='section3' >
@@ -22,7 +20,7 @@ const Section3 = ({t}) => {
                             </p>
                         </div>
                         <div className='icon'>
-                            <FontAwesomeIcon icon={faScrewdriver} />
+                            <FontAwesomeIcon icon={faScrewdriver} style={{width:'100px'}} />
                         </div>
                     </div>
                     <div style={{alignItems:'center'}}>

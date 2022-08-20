@@ -6,14 +6,13 @@ import Customer from "../icons/Customer"
 import Globe from "../icons/Globe";
 import {useSelector} from "react-redux"
 
-
 const StatsCard = () =>{
-    const allEtudiants = useSelector(state=>state.etudiant)
+    const allStudents = useSelector(state=>state.etudiant)
     const stats = [
         {
           title: "Total inscrits",
           percentage: "+0.240%",
-          value: allEtudiants.length,
+          value: allStudents.length,
           status: "up",
           icon: <Coin/>,
         },
@@ -32,6 +31,7 @@ const StatsCard = () =>{
           icon: <Customer/>,
         },
       ];
+    
     return(
         <>
             <div className="flex gap-6">

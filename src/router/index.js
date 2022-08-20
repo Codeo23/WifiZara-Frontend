@@ -7,22 +7,10 @@ import PrivateRoute from "./../utils/PrivateRoute/PrivateRoute"
 import {useSelector} from "react-redux"
 
 const AppRouter = () => {
-     const {token,role} = useSelector(state => state.authentification)
-     const dispatch = useDispatch()
-     let isAdmin= false
-     let isConnected = false
-     if(token!==""){
-          isConnected = true
-          if(role=="1"){
-               isAdmin = true
-          }
-     }
      return (
                <BrowserRouter>
                     <Routes>
-                         <Route element={<PrivateRoute redirectPath="/" authorization={isConnected && isAdmin} />}>
-                              <Route path='admin/*' element={<AdminLayout />} />
-                         </Route>
+                         <Route path='admin/*' element={<AdminLayout />} />
                          <Route path='/*' element={<UserLayout />} />
                     </Routes>
                </BrowserRouter>

@@ -42,7 +42,8 @@
 
             .left {
                 border: 1px solid $grey;
-                border-radius: 5px;
+                margin-top: 50px;
+                border-radius: 30px;
                 padding: 20px;
                 color: $grey;
                 
@@ -126,14 +127,20 @@
 
             /*Style of right component*/
             .right {
+                border: 1px solid $grey;
+                border-radius: 30px;
+                width: 280px;
+                height: 70%;
+                margin: 100px;
                 display: flex;
                 flex-direction: column;
+                text-align: center;
                 align-items: center;
 
                 img {
-                    width: 300px;
-                    height: 300px;
-                    margin-top: -30px;
+                    width: 130px;
+                    height: 130px;
+                    margin-top: -200px;
                     border-radius: 50%;
                     object-fit: cover;
 
@@ -146,7 +153,7 @@
                 .about-user {
                     width: 100%;
                     color: $whiteGray;
-                    padding: 10px 20px;
+                    padding: 10px 50px;
 
                     h2 {}
 
@@ -154,14 +161,15 @@
                         display: flex;
                         justify-content: flex-start;
                         column-gap: 50px;
-                        padding: 15px 0 0 0;
+                        padding: 20px 0 0 0;
                         font-size: 16px;
                     }
 
                     button {
                         width: 100%;
-                        margin-top: 20px;
-                        padding: 10px;
+                        margin-top: 80px;
+                        margin-bottom: -100px;
+                        padding: 8px;
                         background-color: $bluedark2;
                         border: none;
                         color: $whiteGray;
