@@ -9,14 +9,19 @@ import Section5 from "../components/home/Section5/Section5"
 import Section6 from "../components/home/Section6/Section6"
 import Header from "../components/nav/Header"
 import { useTranslation } from "react-i18next";
+import {useDispatch} from "react-redux"
+import { getAllFeedbacks } from "../../utils/context/feedback.reducer"
 
 const Home = ()=> {
+  const dispatch = useDispatch()
   const { t, i18n } = useTranslation();
 
 	const handleChangeLng = (lng) => {
 		i18n.changeLanguage(lng);
 		localStorage.setItem("lng", lng);
 	};
+
+  dispatch(getAllFeedbacks())
     return(
      <Fragment>
           <Header t={t} handleChangeLng={handleChangeLng}/>

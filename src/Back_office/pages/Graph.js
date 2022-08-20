@@ -9,9 +9,6 @@ const Graph = ()=>{
     return(
         <>
                 <main class="flex flex-col flex-1 gap-6 p-4">
-                    <header>
-                        
-                    </header>
                     <hr class="border-gray-700" />
                     <StatReseaux />
                     <div className='grid grid-cols-2 gap-8'>

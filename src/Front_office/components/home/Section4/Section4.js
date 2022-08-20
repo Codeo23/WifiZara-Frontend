@@ -17,7 +17,7 @@ const Opinion=[
     },
     {
         auteur:'Aina',
-        descri:"Lorem ipsum dolor sit amet consectetur adipiscing elit Consectetur tortor nunc aliquam consectetur semper augue at lorem  ipsum dolor sit amet consectetur adipiscing elit Consectetur tortor nunc aliquam consectetur semper augue at met consectetur ",
+        descri:"My First feedBacks",
         pdp:'https://avatars.githubusercontent.com/u/82655694?v=4'
     }
 ]

@@ -1,13 +1,6 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-  { name: 'Group E', value: 300 },
-];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042','#f01235'];
 
@@ -24,7 +17,15 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   );
 };
 
-const Mostorderedof=()=> {
+const Mostorderedof=({percentage})=> {
+  const data = [
+    { name: 'Group A', value: percentage.L1 },
+    { name: 'Group B', value: percentage.L2 },
+    { name: 'Group C', value: percentage.L3 },
+    { name: 'Group D', value: percentage.M1 },
+    { name: 'Group E', value: percentage.M2 },
+  ];
+  
     return (
         <div style={{width:'100%', height:'200px'}}>
         <ResponsiveContainer width="100%" height="100%">

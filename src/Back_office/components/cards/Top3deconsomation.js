@@ -1,4 +1,5 @@
 import React,{Fragment} from "react"
+import { useSelector } from "react-redux";
 import Chevron from "../icons/ChevronDown"
 
 const mostOrdered = [
@@ -17,29 +18,26 @@ const mostOrdered = [
   ];
 
 const MostOrdered = ()=>{
+    const allStudents = useSelector(state=>state.etudiant)
     return(
         <Fragment>
             <div className="flex flex-col p-6 bg-gray-900 rounded-lg gap-y-6">
                 <div className="flex justify-between items-center">
                     <h2 className="text-xl font-semibold leading-loose text-white">Top 3 de consomateur</h2>
-                    <form>
-                        <select className="flex gap-x-2.5 py-3 px-4 rounded-lg border text-white bg-gray-900 border-gray-700">
-                            <option className="text-sm text-white">Ajourd'hui</option>
-                            <option className="text-sm text-white">Hier</option>
-                            <option className="text-sm text-white">La semaine derniere</option>
-                        </select>
-                    </form>
                 </div>
                 <hr className="border-gray-700" />
                 <div className="flex flex-col gap-y-4">
-                    {mostOrdered.map((order)=>(
+                    {allStudents.length>=3 ?
+                    allStudents
+                    .slice(0,3)
+                    .map((order)=>(
                         <div  className="flex gap-x-4 items-center">
-                            <img className="w-14 h-14 rounded-full" src={order.image}  alt="" />
+                            <img className="w-14 h-14 rounded-full" src={order.image.replace("http://127.0.0.1:6000","https://wifizara-back.iteam-s.mg")}  alt="" />
                             <div className="flex flex-col gap-y-0.5">
-                            <div className="text-sm font-medium text-white">{ order.name }</div>
+                            <div className="text-sm font-medium text-white">{ order.lastName }</div>
                          </div>
                         </div>
-                    ))}
+                    )):null}
                 </div>
             </div>
         </Fragment>
