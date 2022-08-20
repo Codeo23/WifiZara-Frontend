@@ -29,7 +29,7 @@ const Section5 = () => {
 
                         {[1,2,3,4,5].map((item) =>
                             <div key={`${item.id}`} className="box-image">
-                                <img src="https://assets.website-files.com/611d114cb3a54a7930597408/611d114cb3a54a2028597455_image-home-v1-testimonials-startup-x-template.jpg" alt={item.name} />
+                                <img src="https://media-exp1.licdn.com/dms/image/C4D1BAQEB8yTWmFvUdg/company-background_10000/0/1560588294255?e=2159024400&v=beta&t=nabAC3fl_Y1YOYRySapnKObVOt40_3XqAMUeVECMaFQ" alt={item.name} />
                                 <div className='box-text'>
                                     <p className="p1">
                                         “social network”
