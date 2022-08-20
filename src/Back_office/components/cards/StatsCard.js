@@ -19,14 +19,14 @@ const StatsCard = () =>{
         {
           title: "Total connectés actuellement",
           percentage: "74.40%",
-          value: "1564",
+          value: 15,
           status: "down",
           icon: <Globe/>,
         },
         {
           title: "Total non connectés actuellement",
           percentage: "25.60%",
-          value: "436",
+          value: 5,
           status: "up",
           icon: <Customer/>,
         },

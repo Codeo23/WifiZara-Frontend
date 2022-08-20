@@ -8,24 +8,20 @@ import Right from './Right'
 import axios from 'axios'
 import {useSelector,useDispatch} from "react-redux"
 import {useNavigate} from "react-router-dom"
-import { TOKEN_VALUE } from '../../../utils/context/auth.reducer'
+import { dataStudent, getOneStudent, TOKEN_VALUE } from '../../../utils/context/auth.reducer'
+import { getAllStudents } from '../../../utils/context/etudiant.reducer'
+
 
 const ProfileLog = () => {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [user,setUser] = useState({})
-    const {id,token} = useSelector(state=>state.authentification)
-    useEffect(() => {
-        axios.get(`https://wifizara-back.iteam-s.mg/users/${id}`,{headers:{
-            'Authorization': `bearer ${token}`
-        }}).then(res=> setUser(res.data)).catch(err=> console.log("error"))
-    },[])
-    
+    const {matricule,token} = useSelector(state=>state.authentification)
+    const navigate = useNavigate()
     const logout = (e)=> {
         e.preventDefault()
         dispatch(TOKEN_VALUE(""))
         navigate("/login")
     } 
+    dispatch(getAllStudents(token))
 
     return (
         <div className='profile'>

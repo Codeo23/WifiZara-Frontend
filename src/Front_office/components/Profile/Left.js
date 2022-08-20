@@ -432,47 +432,46 @@ const data = [
 ]
 
 const Left = () => {
-  const [user,setUser] = useState({})
-  const {id,token} = useSelector(state=>state.authentification)
-  useEffect(() => {
-      axios.get(`https://wifizara-back.iteam-s.mg/users/${id}`,{headers:{
-          'Authorization': `bearer ${token}`
-      }}).then(res=> setUser(res.data)).catch(err=> console.log("error"))
-  },[])
-  const vide = Object.keys(user).length === 0?true:false
-
+  const {matricule} = useSelector(state=>state.authentification)
+    const etudiant = useSelector(state=>state.etudiant)
+    let user
+    if(etudiant.length>0){
+        user = etudiant.filter(et=>et.matriculate == matricule)[0]
+    }
+    
   return (
+
     <div className='left'>
       <div className='top-left'>
-        <span>{!vide &&user.firstName}</span>
-        <h1>Bonjour👋, {!vide &&user.lastName}</h1>
+        <span>{user && user.firstName}</span>
+        <h1>Bonjour👋, {user && user.lastName}</h1>
       </div>
       <div className='description-user'>
-        <span><FontAwesomeIcon icon={faUser} /> {!vide &&user.lastName} {!vide &&user.firstName}</span>
-        <span><FontAwesomeIcon icon={faAt} />{!vide &&user.email}</span>
-        <span><FontAwesomeIcon icon={faPhone} /> {!vide &&user.phone}</span>
+        <span><FontAwesomeIcon icon={faUser} /> {user &&user.lastName} {user &&user.firstName}</span>
+        <span><FontAwesomeIcon icon={faAt} />{user &&user.email}</span>
+        <span><FontAwesomeIcon icon={faPhone} /> {user &&user.phone}</span>
       </div>
       <div className='about-connection'>
         <div className='line'></div>
         <div className='about'>
           <div className='desc'>
             <h3><FontAwesomeIcon icon={faSignal}/>Données aujourd'hui</h3>
-            <h6>Remaining Data:{!vide &&user.remainingData}</h6>
-            <h6>Max Data: {!vide &&user.level.maxData}</h6>
+            <h6>Remaining Data:{user &&user.remainingData}</h6>
+          {user ? <h6>Max Data: {user.level.maxData}</h6>: null} 
           </div>
           <div className='circle'>
-         {!vide && <CircularProgressbar value={parseInt(user.level.maxData)/parseInt(user.remainingData)} text={`${parseInt(user.level.maxData)/parseInt(user.remainingData)}%`} />}
+         {user && <CircularProgressbar value={parseInt(user.level.maxData)/parseInt(user.remainingData)} text={`${parseInt(user.level.maxData)/parseInt(user.remainingData)}%`} />}
           </div>
         </div>
 
         <div className='about'>
           <div className='desc'>
             <h3><FontAwesomeIcon icon={faSignal}/>Temps aujourd'hui</h3>
-            <h6>Remaining Time: {!vide &&user.remainingTime}</h6>
-            <h6>Duration: {!vide &&user.level.duration}</h6>
+            <h6>Remaining Time: {user &&user.remainingTime}</h6>
+            <h6>Duration: {user &&user.level.duration}</h6>
           </div>
           <div className='circle'>
-          {!vide && <CircularProgressbar value={parseInt(user.level.duration)/parseInt(user.remainingTime)} text={`${parseInt(user.level.duration)/parseInt(user.remainingTime)}%`} />}
+          {user && <CircularProgressbar value={parseInt(user.level.duration)/parseInt(user.remainingTime)} text={`${parseInt(user.level.duration)/parseInt(user.remainingTime)}%`} />}
           </div>
         </div>
       </div>

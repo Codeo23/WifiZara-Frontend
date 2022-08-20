@@ -6,23 +6,21 @@ import {useSelector} from "react-redux"
 
 
 const Right = () => {
-    const [user,setUser] = useState({})
-    const {id,token} = useSelector(state=>state.authentification)
-    useEffect(() => {
-        axios.get(`https://wifizara-back.iteam-s.mg/users/${id}`,{headers:{
-            'Authorization': `bearer ${token}`
-        }}).then(res=> setUser(res.data)).catch(err=> console.log("error"))
-    },[])
-    const vide = Object.keys(user).length === 0?true:false
-    console.log(user)
+    const {matricule} = useSelector(state=>state.authentification)
+    const etudiant = useSelector(state=>state.etudiant)
+    let user
+    if(etudiant.length>0){
+        user = etudiant.filter(et=>et.matriculate == matricule)[0]
+    }
+    
     return (
         <div className='right'>
-            {!vide && <img src={user.image.replace("http://127.0.0.1:6000","https://wifizara-back.iteam-s.mg")} alt="avatar" />}
+            {user ? <img src={user.image.replace("http://127.0.0.1:6000","https://wifizara-back.iteam-s.mg")} alt="avatar" />:null}
             <div className='about-user'>
-                 <h2>{!vide &&user.lastName}</h2>
+                 <h2>{user &&user.lastName}</h2>
                 <div className='graduate-and-'>
-                    <span><FontAwesomeIcon icon={faGraduationCap} />{!vide &&user.level.wording}</span>
-                    <span><FontAwesomeIcon icon={faIdBadge} />{!vide &&user.matriculate}</span>
+                    <span><FontAwesomeIcon icon={faGraduationCap} />{user &&user.level.wording}</span>
+                    <span><FontAwesomeIcon icon={faIdBadge} />{user &&user.matriculate}</span>
                 </div>
                 <button>Editer profil</button>
             </div>
